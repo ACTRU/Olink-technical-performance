@@ -1,0 +1,117 @@
+---
+title: "2 - Basic QC analysis"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+# Read in all data table
+
+```{r}
+
+all_data_merged <- read_csv("Input data/all_data_merged.csv")
+
+```
+
+#V. basic analysis - which analytes appear on all panels and how many missing values are there in each biofluid?
+
+
+
+## Demographics for MADRC
+
+```{r, include=FALSE}
+
+### The age and sex of participants are only available upon request to the investigators to protect the identity of the oldest cohort members.
+
+
+# library(table1)
+# 
+# demos <- all_data_merged %>%
+#   select(SubjectID, Gender, Age, `SEA diagnosis`) %>%
+#   filter(`SEA diagnosis` != "QC_sample") %>%
+#   unique() %>%
+#   group_by(SubjectID) %>%
+#   slice_min(Age) %>%
+#   rename(Sex = Gender) %>%
+#   rename(`Age at baseline` = Age) %>%
+#   rename(Diagnosis = `SEA diagnosis`) %>%
+#   mutate(Diagnosis = gsub("Dem_AD", "DEM-AD", Diagnosis)) %>%
+#   mutate(Diagnosis = gsub("N", "CU-N", Diagnosis)) %>%
+#   mutate(Sex = as.factor(Sex))
+# 
+# Table1 <- table1(~Sex + `Age at baseline` | Diagnosis, data = demos)
+# 
+# Table1
+
+```
+
+## Percent of NAs per protein per panel
+
+```{r}
+
+NA_MADRC <- all_data_merged %>%
+  separate(proteinID, into = c("Panel", "Protein", "UniprotID", "Olink_ref"), sep = "_", remove = FALSE) %>%
+  group_by(proteinID, Panel, Protein) %>%
+  summarize(n_NA = sum(is.na(NPX)), n = n()) %>%
+  mutate(percent_NA = (n_NA/n)*100)
+
+# NA_MADRC_subject <- all_data_merged %>%
+#   separate(proteinID, into = c("Panel", "Protein", "UniprotID", "Olink_ref"), sep = "_", remove = FALSE) %>%
+#   group_by(SubjectID, Visit) %>%
+#   summarize(n_NA = sum(is.na(NPX)), n = n()) %>%
+#   mutate(percent_NA = (n_NA/n)*100)
+
+Missing_values <- ggplot(NA_MADRC, aes(x = percent_NA, fill = Panel)) + geom_histogram(binwidth = 2) + facet_wrap(~Panel) +
+  xlab("Percent missing values") + ylab("Number of proteins") + theme_bw()
+
+
+ggsave("Figures for Zoe and Amanda/Figure2a_Missing_values_by_panel.pdf", plot = Missing_values, device = "pdf", width = 7.5, height = 5, units = "in", dpi = 300)
+
+N_proteins <- unique(NA_MADRC$Protein)
+
+NA_summary_table <- NA_MADRC %>%
+  select(Panel, Protein, percent_NA)
+
+to_keep<- NA_MADRC %>%
+  filter(percent_NA <= 20)
+saveRDS(to_keep, "Output tables/to_keep.rds")
+
+
+
+
+```
+## LLOQ
+
+```{r}
+library(openxlsx)
+LOD <- read.xlsx("Input data/20190256_20190554_Arnold_NPX_data.xlsx")
+LOD <- LOD[c(2:6),]
+
+LOD <- t(LOD)
+LOD <- data.frame(LOD)
+
+colnames(LOD) <- LOD[1,]
+rownames(LOD) <- NULL
+
+LOD <- LOD %>%
+  select(Panel, Assay, `Uniprot ID`, OlinkID, LOD) %>%
+  filter(Panel != "Panel") 
+
+LODs <- LOD %>%
+  mutate(Panel = gsub("Olink CARDIOMETABOLIC\\(v\\.3602\\)", "CARDIOMETABOLIC", Panel)) %>%
+  mutate(Panel = gsub("Olink CARDIOVASCULAR III\\(v\\.6112\\)", "CARDIOVASCULAR III", Panel)) %>%
+  mutate(Panel = gsub("Olink IMMUNO-ONCOLOGY\\(v\\.3101\\)", "IMMUNO-ONCOLOGY", Panel)) %>%
+  mutate(Panel = gsub("Olink INFLAMMATION\\(v\\.3021\\)", "INFLAMMATION", Panel)) %>%
+  mutate(Panel = gsub("Olink NEURO EXPLORATORY\\(v\\.3901\\)", "NEURO EXPLORATORY", Panel)) %>%
+  rename(Protein = Assay) %>%
+  select(Panel, Protein, LOD)
+
+NA_summary_table <- NA_summary_table %>%
+  left_join(LODs, by = c("Panel", "Protein"))
+
+write_csv(NA_summary_table, "Output tables/Supplementary tables/Table S1 missing values.csv")
+  
+```

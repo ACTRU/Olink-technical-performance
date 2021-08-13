@@ -1,0 +1,191 @@
+---
+title: "3 - Technical variation - CVs and change"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+
+all_data_merged <- read_csv("Input data/all_data_merged.csv")
+```
+
+
+## Intraplate CVs in plasma
+
+Filter out analytes with > 20% missing values in the MADRC experiment, then calculate CVs using the repeat samples from the same experiment.
+
+
+```{r, echo=FALSE}
+
+#Define control experiment structure
+
+
+
+controls_only <- all_data_merged %>%
+  filter(`SEA diagnosis` == "QC_sample")
+  
+controls_key <- as.data.frame(table(controls_only$TubeID))
+controls_key <- controls_key %>%
+  separate(Var1, into = c("Control", "Rep"), sep = "_", remove = FALSE) %>%
+  select(-Freq)
+
+rep <- c(1,2,3,4,5,6,7,8,9,10,11,12)
+plate <- c(1,1,2,2,3,3,4,4,5,5,6,6)
+paired <- c(1,2,1,2,1,2,1,2,1,2,1,2)
+plate_key <- cbind(rep, plate, paired)
+
+controls_key <- merge(plate_key, controls_key, by.x = "rep", by.y = "Rep" )
+controls_only <- merge(controls_key, controls_only, by.x = "Var1", by.y = "TubeID")
+saveRDS(controls_only, "Output tables/controls_only.rds")
+
+
+
+#First filter out analytes with greater than 20% of values missing
+
+to_keep <- readRDS("Output tables/to_keep.rds")
+
+
+# Intra-plate CV
+Intra_plate_CV_summary <- controls_only %>%
+  filter(proteinID %in% to_keep$proteinID) %>%
+  filter(!is.na(NPX)) %>%
+  group_by(plate, Control, proteinID) %>%
+  summarize(n = n(), sd = sd(NPX), mean = mean(NPX)) %>%
+  filter(!is.na(sd)) %>%
+  mutate(CV = (sd/mean)*100) %>%
+  group_by(proteinID) %>%
+  summarize(mean_NPX = mean(mean), mean_CV = mean(CV)) %>%
+  separate(proteinID, into = c("Panel", "Protein", "Uniprot", "OlinkRef"), sep = "_", remove = FALSE)
+
+plot <- ggplot(data = Intra_plate_CV_summary, aes(x = mean_CV, fill = Panel)) +geom_histogram(binwidth = 2.5) + 
+  theme_bw() +
+  xlab("Mean CV") + geom_vline(xintercept = 15, color = "red") + 
+  facet_grid(~Panel) + 
+  ggtitle("Intraplate Coefficient of Variation") + ylab("Count") +
+  ylab("Count")
+
+
+
+```
+
+## Zoomed in intra-plate CV plots
+
+```{r, echo=FALSE}
+Bad_intra <- Intra_plate_CV_summary %>%
+  filter(mean_CV > 15)
+
+Intra_CV_plot <- ggplot(data = Intra_plate_CV_summary, aes(x = mean_CV, fill = Panel)) + geom_histogram(binwidth = 2.5) + theme_bw() +
+  xlab("Mean CV") + geom_vline(xintercept = 15, color = "red") + 
+  xlim(0,50) +
+  facet_wrap(~Panel, ncol = 3) +
+  ggtitle("Intraplate Coefficient of Variation") + 
+  ylab("N proteins")
+
+
+ggsave("Figures for Zoe and Amanda/Fig3A_Intraplate_CV.pdf", plot = Intra_CV_plot, device = "pdf", width = 7.5, height = 4.375, units = "in", dpi = 300)
+
+##Only one analyte is cut off these zoomed in intra-plot
+
+
+```
+
+
+
+
+
+
+## Inter-plate CV
+
+```{r, echo=FALSE}
+# Inter-plate CV
+Inter_plate_CV_summary <- controls_only %>%
+  filter(proteinID %in% to_keep$proteinID) %>%
+  filter(!is.na(NPX)) %>%
+  group_by(plate, Control, proteinID) %>%
+  summarize(n = n(), mean = mean(NPX)) %>%
+  group_by(Control, proteinID) %>%
+  summarize(n = n(), sd = sd(mean), mean = mean(mean)) %>%
+  filter(!is.na(sd)) %>%
+  mutate(CV = (sd/mean)*100) %>%
+  group_by(proteinID) %>%
+  summarize(mean_NPX = mean(mean), mean_CV = mean(CV)) %>%
+  separate(proteinID, into = c("Panel", "Protein", "Uniprot", "OlinkRef"), sep = "_", remove = FALSE)
+
+plot <- ggplot(data = Inter_plate_CV_summary, aes(x = mean_CV)) +geom_histogram(binwidth = 2.5) + theme_bw() +
+  xlab("Mean CV") + geom_vline(xintercept = 15, color = "red") + facet_grid(~Panel) + ylab("Count") +
+  ggtitle("Interplate Coefficient of Variation")
+
+
+```
+## Zoomed in inter-plate CV plots
+
+```{r, echo=FALSE}
+bad_inter <- Inter_plate_CV_summary %>%
+  filter(mean_CV > 15)
+
+Inter_CV_plot <- ggplot(data = Inter_plate_CV_summary, aes(x = mean_CV, fill = Panel)) +geom_histogram(binwidth = 2.5) + theme_bw() +
+  xlab("Mean CV") + geom_vline(xintercept = 15, color = "red") + facet_wrap(~Panel, ncol = 3) + xlim(0,50) + 
+  ggtitle("Interplate Coefficient of Variation") + ylab("N proteins")
+
+ggsave("Figures for Zoe and Amanda/Figure3C_Interplate_CV.pdf", plot = Inter_CV_plot, device = "pdf", width = 7.5, height = 4.375, units = "in", dpi = 300)
+
+
+
+
+```
+
+
+#Is there a relationship between NPX and CV?
+ 
+##Intra-plate CVs 
+
+```{r, echo=FALSE}
+Intra_vs_NPX <- ggplot(data = Intra_plate_CV_summary, aes(x = mean_NPX, y = mean_CV)) + 
+  geom_point(aes(color = Panel)) + scale_y_log10() + ylab("Mean CV") + facet_wrap(~Panel)+
+  xlab("Mean NPX") + ggtitle("Intraplate Coefficent of Variation (CV) vs NPX")
+
+Intra_vs_NPX_combined <- ggplot(data = Intra_plate_CV_summary, aes(x = mean_NPX, y = mean_CV)) + 
+  geom_point(aes(color = Panel)) + scale_y_log10() + ylab("Mean CV") +
+  xlab("Mean NPX") + ggtitle("Intraplate Coefficent of Variation (CV) vs NPX") + theme_bw()
+
+
+ggsave("Figures for Zoe and Amanda/Figure3B_IntraVsNPXcombined.pdf", plot = Intra_vs_NPX_combined, device = "pdf", width = 6, height = 3.75, units = "in", dpi = 300)
+
+
+```
+
+## Inter-plate CVs 
+
+```{r, echo=FALSE}
+Inter_vs_NPX <- ggplot(data = Inter_plate_CV_summary, aes(x = mean_NPX, y = mean_CV)) + 
+  geom_point(aes(color = Panel)) + scale_y_log10() + ylab("Mean CV") + facet_wrap(~Panel)+
+  xlab("Mean NPX (NPX)") + ggtitle("Interplate Coefficent of Variation (CV) vs NPX")
+
+Inter_vs_NPXcombined <- ggplot(data = Inter_plate_CV_summary, aes(x = mean_NPX, y = mean_CV)) + 
+  geom_point(aes(color = Panel)) + scale_y_log10() + ylab("Mean CV") + 
+  xlab("Mean NPX (NPX)") + ggtitle("Interplate Coefficent of Variation (CV) vs NPX") + theme_bw()
+
+# ggsave("Figures for Zoe and Amanda/InterVsNPX.pdf", plot = Inter_vs_NPX, device = "pdf", width = 7.5, height = 4.375, units = "in", dpi = 300)
+
+ggsave("Figures for Zoe and Amanda/Figure_3D_InterVsNPXcombined.pdf", plot = Inter_vs_NPXcombined, device = "pdf", width = 6, height = 3.75, units = "in", dpi = 300)
+
+
+```
+
+##Result tables 
+
+```{r}
+
+Intra_summary <- Intra_plate_CV_summary %>%
+  select(Panel, Protein, Uniprot, OlinkRef, mean_CV) %>%
+  rename(`Intra plate CV` = mean_CV)
+
+Inter_summary <- Inter_plate_CV_summary %>%
+  select(Panel, Protein, Uniprot, OlinkRef, mean_CV) %>%
+  rename(`Inter plate CV` = mean_CV)
+
+Combined_summary <- merge(Intra_summary, Inter_summary, by = c("Panel", "Protein", "Uniprot", "OlinkRef"))
+
+write_csv(Combined_summary, "Output tables/Tech_CVs.csv")
+```

@@ -1,0 +1,422 @@
+---
+title: "6 - ANOVA for sources of variance"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+##Read in files
+
+```{r}
+
+controls_only <- readRDS("Output tables/controls_only.rds")
+
+to_keep <- readRDS("Output tables/to_keep.rds")
+
+all_data_merged <- read_csv("Input data/all_data_merged.csv")
+
+```
+
+##ANOVA to quantify sources of variance - intra, inter plate in plasma
+
+```{r}
+
+For_ANOVA <- controls_only %>%
+  filter(proteinID %in% to_keep$proteinID) %>%
+  filter(!is.na(NPX)) %>%
+  select(Control, plate, paired, proteinID, NPX) %>%
+  pivot_wider(names_from = proteinID, values_from = NPX) 
+
+tmp <- For_ANOVA[,4:ncol(For_ANOVA)] %>%
+  mutate_all(~ifelse(is.na(.x), min(.x, na.rm = TRUE), .x))  
+demos <- For_ANOVA[,1:3]
+For_ANOVA <- cbind(demos,tmp)
+
+fit2 <- aov(as.matrix(For_ANOVA[4:ncol(For_ANOVA)]) ~ as.factor(Control) + as.factor(plate), data = For_ANOVA)
+
+coeffs = as.data.frame(t(fit2$coefficients))
+colnames(coeffs) = c("Intercept","Biological","Interplate")
+
+meanSquares = t(as.data.frame(lapply(summary.aov(fit2), function(mat){ mat[1:3,3] })))
+colnames(meanSquares) = c("Biological","Interplate","Intraplate")
+meanSquares = data.frame(assay=rownames(coeffs), meanSquares)
+
+pValues = t(as.data.frame(lapply(summary.aov(fit2), function(mat){ mat[1:2,5] })))
+colnames(pValues) = c("Biological","Interplate")
+rownames(pValues) = rownames(coeffs)
+
+m = "BH"
+qValues = data.frame(assay=rownames(coeffs),
+                     Biological=p.adjust(pValues[,1],method=m),
+                     plate=p.adjust(pValues[,2]),method=m)
+
+
+
+toPlot = meanSquares %>%
+  group_by(assay) %>%
+  summarise(totalMS=Biological+Interplate+Intraplate,
+            frac_biological=(Biological/totalMS)*100,
+            frac_interplate=(Interplate/totalMS)*100,
+            frac_intraplate=(Intraplate/totalMS)*100) %>%
+  arrange(desc(frac_biological))
+
+  
+toPlot_melted = toPlot %>%
+  pivot_longer(!assay, names_to = "variation_type", values_to = "percent") %>%
+  filter(variation_type != "totalMS") %>%
+  separate(assay, into = c("Panel", "Protein", "Uniprot", "OlinkRef"), sep = "_", remove = FALSE)
+
+
+tmp <- toPlot_melted %>%
+  filter(variation_type == "frac_biological") %>%
+  mutate(plot_order = percent) %>%
+  select(assay, plot_order)
+
+toPlot_melted <- merge(toPlot_melted, tmp, by = "assay")
+
+##Each panel alone
+
+plot_colors <- c("frac_biological" = "#fc8d59", "frac_interplate" = "#ffffbf", "frac_intraplate" = "#91bfdb")
+
+Cardiometabolic <- toPlot_melted %>%
+  filter(Panel == "CARDIOMETABOLIC") %>%
+  ggplot(aes(x = reorder(Protein, -plot_order),y=percent,fill=variation_type)) +geom_bar(stat="identity") +
+  xlab("Protein") + ylab("Percent variation") + scale_fill_manual(values = plot_colors)+ coord_flip()
+
+
+ggsave("Figures for Zoe and Amanda/Cardiometabolic_ANOVA.pdf", plot = Cardiometabolic, device = "pdf", width = 5, height = 8.6, units = "in", dpi = 300)
+
+
+Cardiovascular <- toPlot_melted %>%
+  filter(Panel == "CARDIOVASCULAR III") %>%
+  ggplot(aes(x = reorder(Protein, -plot_order),y=percent,fill=variation_type)) +geom_bar(stat="identity") +
+  xlab("Protein") + ylab("Percent variation")+ scale_fill_manual(values = plot_colors)+ coord_flip()
+
+ggsave("Figures for Zoe and Amanda/Cardiovascular_ANOVA.pdf", plot = Cardiovascular, device = "pdf", width = 5, height = 8.6, units = "in", dpi = 300)
+
+
+Immuno_onc <- toPlot_melted %>%
+  filter(Panel == "IMMUNO-ONCOLOGY") %>%
+  ggplot(aes(x = reorder(Protein, -plot_order),y=percent,fill=variation_type)) +geom_bar(stat="identity") +
+  xlab("Protein") + ylab("Percent variation")+ scale_fill_manual(values = plot_colors) + coord_flip()
+
+ggsave("Figures for Zoe and Amanda/Immuno_Onc_ANOVA.pdf", plot = Immuno_onc, device = "pdf", width = 5, height = 8.6, units = "in", dpi = 300)
+
+
+Inflammation <- toPlot_melted %>%
+  filter(Panel == "INFLAMMATION") %>%
+  ggplot(aes(x = reorder(Protein, -plot_order),y=percent,fill=variation_type)) +geom_bar(stat="identity") +
+  xlab("Protein") + ylab("Percent variation")+ scale_fill_manual(values = plot_colors) + coord_flip()
+
+ggsave("Figures for Zoe and Amanda/Inflammation_ANOVA.pdf", plot = Inflammation, device = "pdf", width = 5, height = 8.6, units = "in", dpi = 300)
+
+
+NeuroEx <- toPlot_melted %>%
+  filter(Panel == "NEURO EXPLORATORY") %>%
+  ggplot(aes(x = reorder(Protein, -plot_order),y=percent,fill=variation_type)) +geom_bar(stat="identity") +
+  xlab("Protein") + ylab("Percent variation")+ scale_fill_manual(values = plot_colors) + coord_flip()
+
+ggsave("Figures for Zoe and Amanda/NeuroEx_ANOVA.pdf", plot = NeuroEx, device = "pdf", width = 5, height = 8.6, units = "in", dpi = 300)
+
+## Overall summary figure
+
+Combined_ANOVA <- toPlot_melted %>%
+  ggplot(aes(x = reorder(assay, -plot_order),y=percent,fill=variation_type)) +geom_bar(stat="identity") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 8))  +
+  xlab("Protein") + ylab("Percent variation") +
+  theme(axis.text.x=element_blank(), axis.ticks.x=element_blank()) + 
+  geom_hline(yintercept = 50, color = "white", linetype = "dashed")+ scale_fill_manual(values = plot_colors)
+
+ggsave("Figures for Zoe and Amanda/Combined_ANOVA.pdf", plot = Combined_ANOVA, device = "pdf", width = 7.5, height = 3.75, units = "in", dpi = 300)
+
+
+## Zoom in of bad proteins
+
+Combined_ANOVA_bad_proteins <- toPlot_melted %>%
+  filter(plot_order <= 50) %>%
+  unite(X_labels, Panel:Protein, sep = " ") %>%
+  ggplot(aes(x = reorder(X_labels, -plot_order),y=percent,fill=variation_type)) +geom_bar(stat="identity") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 8))  +
+  xlab("Protein") + ylab("Percent variation") + scale_fill_manual(values = plot_colors)
+
+ggsave("Figures for Zoe and Amanda/Figure5B_Combined_ANOVA_bad_proteins.pdf", plot = Combined_ANOVA_bad_proteins, device = "pdf", width = 7.5, height = 3.75, units = "in", dpi = 300)
+
+bad_proteins <- toPlot_melted %>%
+  filter(plot_order < 50)
+
+summary <- controls_only %>%
+  filter(!is.na(NPX)) %>%
+  group_by(proteinID) %>%
+  summarise(mean_NPX = mean(NPX))
+
+Var_NPX <- toPlot_melted %>%
+  select(assay,variation_type, percent, plot_order) %>%
+  filter(variation_type == "frac_biological") %>%
+  mutate(frac_technical = 100-percent) %>%
+  rename(proteinID = assay) %>%
+  left_join(summary) %>%
+  ggplot(aes(x = mean_NPX, y = frac_technical)) + geom_point() + theme_bw() + xlab("mean NPX") + ylab("Percent technical")
+
+ggsave("Figures for Zoe and Amanda/Figure5C_tech_var_NPX.pdf", plot = Var_NPX, device = "pdf", 
+       width = 3, height = 2, units = "in", dpi = 300)
+
+```
+
+
+##Results table
+
+```{r}
+
+Tech_summary_table <- toPlot %>%
+  separate(assay, into = c("Panel", "Protein", "Uniprot", "OlinkRef"), sep = "_", remove = TRUE) %>%
+  rename(`total mean squares` = totalMS, `Biological` = frac_biological, Interplate = frac_interplate, Intraplate = frac_intraplate)
+
+
+
+
+
+```
+
+
+## Variance component analysis for biotemporal variation vs condition - MADRC data
+
+```{r}
+
+biotempVscondition <- all_data_merged %>%
+  filter(`SEA Category` == "normals_remain_normal" | `SEA Category` == "dementia_due_to_AD")
+
+biotempVscondition$Visit <- as.numeric(biotempVscondition$Visit)
+
+biotemp_forANOVA <- biotempVscondition %>%
+  filter(proteinID %in% to_keep$proteinID) %>%
+  filter(!is.na(NPX)) %>%
+  select(SubjectID, Days_since_baseline, `SEA Category`, proteinID, NPX) %>%
+  spread(proteinID, NPX)
+
+
+
+```
+
+
+
+
+##Variance component analysis
+
+```{r}
+
+
+  
+  
+  
+tmp <- biotemp_forANOVA %>%
+  group_by(SubjectID) %>%
+  mutate(rank_visit = rank(Days_since_baseline)) %>%
+  dplyr::select(SubjectID, Days_since_baseline, rank_visit, `SEA Category`)
+
+to_VCA <- data.frame(tmp, biotemp_forANOVA[,4:ncol(biotemp_forANOVA)], stringsAsFactors = F)
+to_VCA$SubjectID = as.factor(to_VCA$SubjectID)
+to_VCA$SEA.Category = as.factor(to_VCA$SEA.Category)
+protein_names = colnames(to_VCA)[-c(1:4)]
+result = tibble(protein=protein_names, pcVar_Dx=0,pcVar_Subj=0,pcVar_err=0)
+pb = txtProgressBar(min=1, max=nrow(result), initial=1, style=3) 
+for(i in 1:nrow(result)){
+  tmp_mat = na.omit(to_VCA[, c(1:4,i+4)])
+  colnames(tmp_mat)[4:5] = c("Dx","NPX")
+  tmp_res = data.frame(VCA::fitVCA(NPX ~ Dx/SubjectID, Data=tmp_mat)$aov.tab)
+  result$pcVar_Dx[i] = tmp_res$X.Total[2]
+  result$pcVar_Subj[i] = tmp_res$X.Total[3]
+  result$pcVar_err[i] = tmp_res$X.Total[4]
+  setTxtProgressBar(pb,i)
+}
+
+plot_colors <- c("pcVar_Dx" = "#af8dc3", "pcVar_Subj" = "#f7f7f7", "pcVar_Time" = "#7fbf7b")
+
+
+to_plot_Dx <- result %>%
+  dplyr::arrange(desc(pcVar_Dx)) %>%
+  rename(pcVar_Time = pcVar_err) %>%
+  dplyr::mutate(protein=as.factor(protein)) %>%
+  dplyr::mutate(plot_order = rank(pcVar_Dx)) %>%
+  tidyr::pivot_longer(-c(protein, plot_order),names_to="level",values_to="percentVariance") %>%
+  ggplot(aes(x=reorder(protein, -plot_order),y=percentVariance,fill=level)) +geom_col() + 
+  scale_fill_manual(values = plot_colors)
+
+
+to_plot_Dx <- result %>%
+  rename(pcVar_Time = pcVar_err) %>%
+  filter(pcVar_Dx > 10) %>%
+  dplyr::mutate(protein=as.factor(protein)) %>%
+  dplyr::mutate(plot_order = rank(pcVar_Dx)) %>%
+  tidyr::pivot_longer(-c(protein, plot_order),names_to="level",values_to="percentVariance") %>%
+  separate(protein, into = c("Panel", "Protein", "Uniprot", "OlinkRef"), sep = "_", remove = FALSE) %>%
+  unite(X_labels, Panel:Protein, sep = " ") %>%
+  ggplot(aes(x=reorder(X_labels, -plot_order),y=percentVariance,fill=level)) +geom_col() + 
+  scale_fill_manual(values = plot_colors) + theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 8)) +
+  xlab("Protein") + ylab("Percent variance")
+
+ggsave("Figures for Zoe and Amanda/Figure6B_DxVarZoom.pdf", plot = to_plot_Dx, device = "pdf", 
+       width = 3.75, height = 3, units = "in", dpi = 300)
+
+
+to_plot_time <- result %>%
+  dplyr::arrange(desc(pcVar_Dx)) %>%
+  rename(pcVar_Time = pcVar_err) %>%
+  dplyr::mutate(protein=as.factor(protein)) %>%
+  dplyr::mutate(plot_order = rank(pcVar_Time)) %>%
+  tidyr::pivot_longer(-c(protein, plot_order),names_to="level",values_to="percentVariance") %>%
+  separate(protein, into = c("Panel", "Protein", "Uniprot", "OlinkRef"), sep = "_", remove = FALSE) %>%
+  unite(X_labels, Panel:Protein, sep = " ") %>%
+  ggplot(aes(x=reorder(X_labels, -plot_order),y=percentVariance,fill=level)) +geom_col() + 
+  scale_fill_manual(values = plot_colors) + theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 8)) +
+  xlab("Protein") + ylab("Percent variance")
+
+ggsave("Figures for Zoe and Amanda/Figure6C_TimeVar.pdf", plot = to_plot_time, device = "pdf", 
+       width = 7.5, height = 4, units = "in", dpi = 300)
+
+
+to_plot_time <- result %>%
+  dplyr::arrange(desc(pcVar_Dx)) %>%
+  rename(pcVar_Time = pcVar_err) %>%
+  dplyr::mutate(protein=as.factor(protein)) %>%
+  dplyr::mutate(plot_order = rank(pcVar_Time)) %>%
+  filter(pcVar_Time > 75) %>%
+  tidyr::pivot_longer(-c(protein, plot_order),names_to="level",values_to="percentVariance") %>%
+  separate(protein, into = c("Panel", "Protein", "Uniprot", "OlinkRef"), sep = "_", remove = FALSE) %>%
+  unite(X_labels, Panel:Protein, sep = " ") %>%
+  ggplot(aes(x=reorder(X_labels, -plot_order),y=percentVariance,fill=level)) +geom_col() + 
+  scale_fill_manual(values = plot_colors) + theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 8)) +
+  xlab("Protein") + ylab("Percent variance")
+
+ggsave("Figures for Zoe and Amanda/Figure6D_TimeVarZoom.pdf", plot = to_plot_time, device = "pdf", 
+       width = 7, height = 4, units = "in", dpi = 300)
+
+Bad_temp <- result %>%
+  filter(pcVar_err > 50)
+
+Indiv_var <- result %>%
+  filter(pcVar_Subj > 50)
+
+Dx_prot <- result %>%
+  filter(pcVar_Dx > 10)
+
+biotemp_means <- biotempVscondition %>%
+  filter(!is.na(NPX)) %>%
+  group_by(proteinID) %>%
+  summarise(mean_NPX = mean(NPX)) %>%
+  mutate(proteinID = gsub(" ", "\\.", proteinID)) %>%
+  mutate(proteinID = gsub("-", "\\.", proteinID)) %>%
+  rename(protein = proteinID) %>%
+  left_join(result) %>%
+  filter(!is.na(pcVar_err)) %>%
+  ggplot(aes(x = mean_NPX, y = pcVar_err)) + geom_point() +theme_bw() + xlab("Mean NPX") + ylab("Percent biotemporal variation")
+
+
+ggsave("Figures for Zoe and Amanda/Figure6E_TimeVsNPX.pdf", plot = biotemp_means, device = "pdf", 
+       width = 2.5, height = 2.5, units = "in", dpi = 300)
+
+
+
+to_plot_time <- result %>%
+  dplyr::arrange(desc(pcVar_Dx)) %>%
+  rename(pcVar_Time = pcVar_err) %>%
+  dplyr::mutate(protein=as.factor(protein)) %>%
+  dplyr::mutate(plot_order = rank(pcVar_Time)) %>%
+  tidyr::pivot_longer(-c(protein, plot_order),names_to="level",values_to="percentVariance") %>%
+  separate(protein, into = c("Panel", "Protein", "Uniprot", "OlinkRef"), sep = "_", remove = FALSE) %>%
+  filter(Panel == "CARDIOMETABOLIC") %>%
+  ggplot(aes(x=reorder(Protein, -plot_order),y=percentVariance,fill=level)) +geom_col() + 
+  scale_fill_manual(values = plot_colors) +
+  xlab("Protein") + ylab("Percent variance") + coord_flip()
+
+
+ggsave("Figures for Zoe and Amanda/FigureS2A_Cardiomet.pdf", plot = to_plot_time, device = "pdf", 
+       width = 5, height = 8.5, units = "in", dpi = 300)
+
+to_plot_time <- result %>%
+  dplyr::arrange(desc(pcVar_Dx)) %>%
+  rename(pcVar_Time = pcVar_err) %>%
+  dplyr::mutate(protein=as.factor(protein)) %>%
+  dplyr::mutate(plot_order = rank(pcVar_Time)) %>%
+  tidyr::pivot_longer(-c(protein, plot_order),names_to="level",values_to="percentVariance") %>%
+  separate(protein, into = c("Panel", "Protein", "Uniprot", "OlinkRef"), sep = "_", remove = FALSE) %>%
+  filter(Panel == "CARDIOVASCULAR.III") %>%
+  ggplot(aes(x=reorder(Protein, -plot_order),y=percentVariance,fill=level)) +geom_col() + 
+  scale_fill_manual(values = plot_colors) +
+  xlab("Protein") + ylab("Percent variance") + coord_flip()
+
+
+ggsave("Figures for Zoe and Amanda/FigureS2A_Cardiovasc.pdf", plot = to_plot_time, device = "pdf", 
+       width = 5, height = 8.5, units = "in", dpi = 300)
+
+
+to_plot_time <- result %>%
+  dplyr::arrange(desc(pcVar_Dx)) %>%
+  rename(pcVar_Time = pcVar_err) %>%
+  dplyr::mutate(protein=as.factor(protein)) %>%
+  dplyr::mutate(plot_order = rank(pcVar_Time)) %>%
+  tidyr::pivot_longer(-c(protein, plot_order),names_to="level",values_to="percentVariance") %>%
+  separate(protein, into = c("Panel", "Protein", "Uniprot", "OlinkRef"), sep = "_", remove = FALSE) %>%
+  filter(Panel == "IMMUNO.ONCOLOGY") %>%
+  ggplot(aes(x=reorder(Protein, -plot_order),y=percentVariance,fill=level)) +geom_col() + 
+  scale_fill_manual(values = plot_colors) +
+  xlab("Protein") + ylab("Percent variance") + coord_flip()
+
+
+ggsave("Figures for Zoe and Amanda/FigureS2C_Immunoonc.pdf", plot = to_plot_time, device = "pdf", 
+       width = 5, height = 8.5, units = "in", dpi = 300)
+
+
+to_plot_time <- result %>%
+  dplyr::arrange(desc(pcVar_Dx)) %>%
+  rename(pcVar_Time = pcVar_err) %>%
+  dplyr::mutate(protein=as.factor(protein)) %>%
+  dplyr::mutate(plot_order = rank(pcVar_Time)) %>%
+  tidyr::pivot_longer(-c(protein, plot_order),names_to="level",values_to="percentVariance") %>%
+  separate(protein, into = c("Panel", "Protein", "Uniprot", "OlinkRef"), sep = "_", remove = FALSE) %>%
+  filter(Panel == "INFLAMMATION") %>%
+  ggplot(aes(x=reorder(Protein, -plot_order),y=percentVariance,fill=level)) +geom_col() + 
+  scale_fill_manual(values = plot_colors) +
+  xlab("Protein") + ylab("Percent variance") + coord_flip()
+
+
+ggsave("Figures for Zoe and Amanda/FigureS2D_Inflamm.pdf", plot = to_plot_time, device = "pdf", 
+       width = 5, height = 8.5, units = "in", dpi = 300)
+
+to_plot_time <- result %>%
+  dplyr::arrange(desc(pcVar_Dx)) %>%
+  rename(pcVar_Time = pcVar_err) %>%
+  dplyr::mutate(protein=as.factor(protein)) %>%
+  dplyr::mutate(plot_order = rank(pcVar_Time)) %>%
+  tidyr::pivot_longer(-c(protein, plot_order),names_to="level",values_to="percentVariance") %>%
+  separate(protein, into = c("Panel", "Protein", "Uniprot", "OlinkRef"), sep = "_", remove = FALSE) %>%
+  filter(Panel == "NEURO.EXPLORATORY") %>%
+  ggplot(aes(x=reorder(Protein, -plot_order),y=percentVariance,fill=level)) +geom_col() + 
+  scale_fill_manual(values = plot_colors) +
+  xlab("Protein") + ylab("Percent variance") + coord_flip()
+
+
+ggsave("Figures for Zoe and Amanda/FigureS2E_ NeuroEx.pdf", plot = to_plot_time, device = "pdf", 
+       width = 5, height = 8.5, units = "in", dpi = 300)
+
+```
+
+
+###Results tables
+
+```{r}
+
+biotemporal_summary_table <- result %>%
+  separate(protein, into = c("Panel", "Protein", "Uniprot", "OlinkRef"), sep = "_", remove = TRUE) %>%
+  rename(Diagnosis = pcVar_Dx, `Inter subject` = pcVar_Subj, Biotemporal = pcVar_err) %>%
+  mutate(Panel = gsub("NEURO.EXPLORATORY", "NEURO EXPLORATORY", Panel)) %>%
+  mutate(Panel = gsub("CARDIOVASCULAR.III", "CARDIOVASCULAR III", Panel)) %>%
+  mutate(Panel = gsub("IMMUNO.ONCOLOGY", "IMMUNO-ONCOLOGY", Panel))
+
+write_csv(Tech_summary_table, "Output tables/tech_variation.csv")
+write_csv(biotemporal_summary_table, "Output tables/biotemporal_variation.csv")
+
+
+```

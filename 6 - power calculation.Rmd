@@ -1,0 +1,268 @@
+---
+title: "7 - Power calculations"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+```{r}
+
+all_data_merged <- read_csv("Input data/all_data_merged.csv")
+
+to_keep <- readRDS("Output tables/to_keep.rds")
+
+
+
+MADRC_baseline <- all_data_merged %>%
+  group_by(SubjectID) %>%
+  filter(proteinID %in% to_keep$proteinID) %>%
+  filter(Visit == min(Visit)) %>%
+  filter(`SEA Category` == "normals_remain_normal" | `SEA Category` == "dementia_due_to_AD") %>%
+  group_by(proteinID, `SEA Category`) %>%
+  filter(!is.na(NPX)) %>%
+  summarize(mean = mean(NPX), stdev = sd(NPX)) %>%
+  pivot_wider(names_from = `SEA Category`, values_from = c(mean, stdev)) %>%
+  mutate(delta = abs(mean_dementia_due_to_AD-mean_normals_remain_normal)) %>%
+  mutate(average_sd = (stdev_dementia_due_to_AD + stdev_normals_remain_normal)/2)
+
+## NFL power calc
+## p = 0.0001 is 0.05/450 (bonferroni corrected)
+NFL <- grep("NEFL", MADRC_baseline$proteinID)
+NFL <- MADRC_baseline[NFL,]
+
+n_seq <- data.frame(n = seq(from=10, to = 500, by = 5)) 
+
+tmp <- apply(n_seq, 1, power.t.test, n = n_seq$n, delta = 0.51, power = NULL, sd = 0.56, sig.level = 0.0001, type = "two.sample", alternative = "two.sided")   
+  
+tmp <- tmp[[1]]    
+NFL_to_plot <- data.frame(n = tmp[1], power = tmp[5])
+NFL_to_plot <- NFL_to_plot %>%
+  mutate(protein = "NFL 450 proteins") %>%
+  select(protein, n, power)
+  
+
+## SMOC1 power calc
+
+SMOC1 <- grep("SMOC1", MADRC_baseline$proteinID)
+SMOC1 <- MADRC_baseline[SMOC1,]
+
+n_seq <- data.frame(n = seq(from=10, to = 500, by = 5)) 
+
+tmp <- apply(n_seq, 1, power.t.test, n = n_seq$n, delta = 0.03, power = NULL, sd = 0.39, sig.level = 0.0001, type = "two.sample", alternative = "two.sided")   
+  
+tmp <- tmp[[1]]    
+SMOC1_to_plot <- data.frame(n = tmp[1], power = tmp[5])
+SMOC1_to_plot <- SMOC1_to_plot %>%
+  mutate(protein = "SMOC1 450 proteins") %>%
+  select(protein, n, power)
+
+
+
+## YKL power calc
+
+YKL <- grep("CHI3L1", MADRC_baseline$proteinID)
+YKL <- MADRC_baseline[YKL,]
+
+n_seq <- data.frame(n = seq(from=10, to = 500, by = 5)) 
+
+tmp <- apply(n_seq, 1, power.t.test, n = n_seq$n, delta = 0.449, power = NULL, sd = 1.10, sig.level = 0.0001, type = "two.sample", alternative = "two.sided")   
+  
+tmp <- tmp[[1]]    
+YKL_to_plot <- data.frame(n = tmp[1], power = tmp[5])
+YKL_to_plot <- YKL_to_plot %>%
+  mutate(protein = "YKL 450 proteins") %>%
+  select(protein, n, power)
+
+
+
+
+##Plot
+all_to_plot <- rbind(NFL_to_plot, SMOC1_to_plot, YKL_to_plot)
+
+ggplot(all_to_plot, aes(x = n, y = power, group = protein, color = protein)) + geom_line()
+```
+
+## 100 proteins 
+
+```{r}
+## NFL power calc
+## p = 0.0001 is 0.05/450 (bonferroni corrected)
+NFL <- grep("NEFL", MADRC_baseline$proteinID)
+NFL <- MADRC_baseline[NFL,]
+
+n_seq <- data.frame(n = seq(from=10, to = 500, by = 5)) 
+
+tmp <- apply(n_seq, 1, power.t.test, n = n_seq$n, delta = 0.51, power = NULL, sd = 0.56, sig.level = 0.0005, type = "two.sample", alternative = "two.sided")   
+  
+tmp <- tmp[[1]]    
+NFL_to_plot <- data.frame(n = tmp[1], power = tmp[5])
+NFL_to_plot <- NFL_to_plot %>%
+  mutate(protein = "NFL 100 proteins") %>%
+  select(protein, n, power)
+  
+
+## SMOC1 power calc
+
+SMOC1 <- grep("SMOC1", MADRC_baseline$proteinID)
+SMOC1 <- MADRC_baseline[SMOC1,]
+
+n_seq <- data.frame(n = seq(from=10, to = 500, by = 5)) 
+
+tmp <- apply(n_seq, 1, power.t.test, n = n_seq$n, delta = 0.03, power = NULL, sd = 0.39, sig.level = 0.0005, type = "two.sample", alternative = "two.sided")   
+  
+tmp <- tmp[[1]]    
+SMOC1_to_plot <- data.frame(n = tmp[1], power = tmp[5])
+SMOC1_to_plot <- SMOC1_to_plot %>%
+  mutate(protein = "SMOC1 100 proteins") %>%
+  select(protein, n, power)
+
+
+
+## YKL power calc
+
+YKL <- grep("CHI3L1", MADRC_baseline$proteinID)
+YKL <- MADRC_baseline[YKL,]
+
+n_seq <- data.frame(n = seq(from=10, to = 500, by = 5)) 
+
+tmp <- apply(n_seq, 1, power.t.test, n = n_seq$n, delta = 0.449, power = NULL, sd = 1.10, sig.level = 0.0005, type = "two.sample", alternative = "two.sided")   
+  
+tmp <- tmp[[1]]    
+YKL_to_plot <- data.frame(n = tmp[1], power = tmp[5])
+YKL_to_plot <- YKL_to_plot %>%
+  mutate(protein = "YKL 100 proteins") %>%
+  select(protein, n, power)
+
+
+
+
+##Plot
+all_to_plot <- rbind(all_to_plot, NFL_to_plot, SMOC1_to_plot, YKL_to_plot)
+
+ggplot(all_to_plot, aes(x = n, y = power, group = protein, color = protein)) + geom_line()
+
+
+
+
+```
+## Single analyte
+
+
+
+
+
+```{r}
+## NFL power calc
+## p = 0.0001 is 0.05/450 (bonferroni corrected)
+NFL <- grep("NEFL", MADRC_baseline$proteinID)
+NFL <- MADRC_baseline[NFL,]
+
+n_seq <- data.frame(n = seq(from=10, to = 500, by = 5)) 
+
+tmp <- apply(n_seq, 1, power.t.test, n = n_seq$n, delta = 0.51, power = NULL, sd = 0.53, sig.level = 0.05, type = "two.sample", alternative = "two.sided")   
+  
+tmp <- tmp[[1]]    
+NFL_to_plot <- data.frame(n = tmp[1], power = tmp[5])
+NFL_to_plot <- NFL_to_plot %>%
+  mutate(protein = "NFL 1 protein") %>%
+  select(protein, n, power)
+  
+
+## SMOC1 power calc
+
+SMOC1 <- grep("SMOC1", MADRC_baseline$proteinID)
+SMOC1 <- MADRC_baseline[SMOC1,]
+
+n_seq <- data.frame(n = seq(from=10, to = 500, by = 5)) 
+
+tmp <- apply(n_seq, 1, power.t.test, n = n_seq$n, delta = 0.03, power = NULL, sd = 0.39, sig.level = 0.05, type = "two.sample", alternative = "two.sided")   
+  
+tmp <- tmp[[1]]    
+SMOC1_to_plot <- data.frame(n = tmp[1], power = tmp[5])
+SMOC1_to_plot <- SMOC1_to_plot %>%
+  mutate(protein = "SMOC1 1 protein") %>%
+  select(protein, n, power)
+
+
+
+## YKL power calc
+
+YKL <- grep("CHI3L1", MADRC_baseline$proteinID)
+YKL <- MADRC_baseline[YKL,]
+
+n_seq <- data.frame(n = seq(from=10, to = 500, by = 5)) 
+
+tmp <- apply(n_seq, 1, power.t.test, n = n_seq$n, delta = 0.449, power = NULL, sd = 1.10, sig.level = 0.05, type = "two.sample", alternative = "two.sided")   
+  
+tmp <- tmp[[1]]    
+YKL_to_plot <- data.frame(n = tmp[1], power = tmp[5])
+YKL_to_plot <- YKL_to_plot %>%
+  mutate(protein = "YKL 1 protein") %>%
+  select(protein, n, power)
+
+
+
+##Plot
+all_to_plot <- rbind(all_to_plot, NFL_to_plot, SMOC1_to_plot, YKL_to_plot)
+
+plot_colors <- c("NFL 450 proteins" = "#31a354", "NFL 100 proteins" = "#a1d99b", "NFL 1 protein" = "#e5f5e0", 
+                 "YKL 450 proteins" = "#e6550d", "YKL 100 proteins" = "#fdae6b", "YKL 1 protein" = "#fee6ce",
+                 "SMOC1 450 proteins" = "#756bb1", "SMOC1 100 proteins" = "#bcbddc", "SMOC1 1 protein" = "#efedf5")
+
+power_plot <- ggplot(all_to_plot, aes(x = n, y = power, group = protein, color = protein)) + geom_line(lwd=1) +
+  scale_x_continuous(breaks = c(100,200, 300, 400, 500)) + geom_hline(yintercept = 0.8, linetype = "dashed") +
+  scale_color_manual(values = plot_colors) + theme_bw() 
+
+ggsave("Figures for Zoe and Amanda/Figure7_power_calculation.pdf", plot = power_plot, device = "pdf", width = 7.5, height = 4, units = "in", dpi = 300)
+
+
+```
+
+
+```{r}
+
+summary_table <- MADRC_baseline %>%
+  select(proteinID, delta, average_sd) %>%
+  rename(stdev = average_sd) 
+
+
+
+
+n_1_protein <- rep(NA,nrow(summary_table))
+
+
+for (i in 1:nrow(summary_table)) {
+  tmp <- power.t.test(delta = summary_table$delta[i], sd = summary_table$stdev[i], power = 0.8, n = NULL, sig.level = 0.05, type = "two.sample", alternative = "two.sided")
+  n_1_protein[i] <- unlist(tmp$n)
+}
+summary_table$`n 1 protein` = n_1_protein
+
+n_100_protein <- rep(NA,nrow(summary_table))
+
+
+for (i in 1:nrow(summary_table)) {
+  tmp <- power.t.test(delta = summary_table$delta[i], sd = summary_table$stdev[i], power = 0.8, n = NULL, sig.level = 0.0005, type = "two.sample", alternative = "two.sided")
+  n_100_protein[i] <- unlist(tmp$n)
+}
+summary_table$`n 100 protein` = n_100_protein
+
+
+
+n_450_protein <- rep(NA,nrow(summary_table))
+
+
+for (i in 1:nrow(summary_table)) {
+  tmp <- power.t.test(delta = summary_table$delta[i], sd = summary_table$stdev[i], power = 0.8, n = NULL, sig.level = 0.0001, type = "two.sample", alternative = "two.sided")
+  n_450_protein[i] <- unlist(tmp$n)
+}
+summary_table$`n 450 protein` = n_450_protein
+
+summary_table <- summary_table %>%
+  arrange(`n 450 protein`)
+
+
+write_csv(summary_table, "TableS5_delta_stdev_n.csv")
+```

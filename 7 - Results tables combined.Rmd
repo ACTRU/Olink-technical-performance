@@ -1,0 +1,22 @@
+---
+title: "7 - results tables"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+```
+
+## Combined CV summary table
+
+```{r}
+
+tech_CVs <- read_csv("Output tables/Tech_CVs.csv")
+
+biotemp_CVs <- read_csv("Output tables/Biotemporal_CVs.csv")
+
+merged_CVs <- merge(tech_CVs, biotemp_CVs, by = c("Panel", "Protein", "Uniprot", "OlinkRef"))
+
+write_csv(merged_CVs, "Output tables/CV_summary.csv")
+```
+

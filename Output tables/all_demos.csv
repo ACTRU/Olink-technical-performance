@@ -1,0 +1,553 @@
+SubjectID,Gender,Age,SEA diagnosis,SEA Category,Visit,Days_since_baseline,Fluid,TubeID,Condition_1,Condition_2,FT_cycles
+LS1006,Male,85,Normal (LifeSPAN),Normal,NA,NA,CSF,84029,NA,NA,NA
+LS1016,Male,61,Normal (LifeSPAN),Normal,NA,NA,CSF,90833,NA,NA,NA
+LS1018,Male,63,Normal (LifeSPAN),Normal,NA,NA,CSF,93811,NA,NA,NA
+LS1021,Male,82,Normal (LifeSPAN),Normal,NA,NA,CSF,98818,NA,NA,NA
+LS1022,Male,60,Normal (LifeSPAN),Normal,1,NA,CSF,90014,NA,NA,NA
+LS1023,Female,57,Normal (LifeSPAN),Normal,NA,NA,CSF,95045,NA,NA,NA
+LS1024,Female,57,Normal (LifeSPAN),Normal,1,NA,CSF,95460,NA,NA,NA
+v1516,Male,63,"Falls NOS, neuropathy, EtOH past",CU Other/NOS,NA,NA,CSF,81231,NA,NA,NA
+v1539,Male,71,Normal Pressure Hydrocephalus,CU Other/NOS,NA,NA,CSF,81219,NA,NA,NA
+v1552,Female,59,"Normal, a few WMHs",CU Other/NOS,NA,NA,CSF,88039,NA,NA,NA
+v1573,Female,73,"Headache, chronic daily, normal cognition",CU Other/NOS,NA,NA,CSF,87967,NA,NA,NA
+v1593,Male,74,Normal Pressure Hydrocephalus,CU NPH,NA,NA,CSF,99681,NA,NA,NA
+LS1006,Male,85,Normal (LifeSPAN),Normal,NA,NA,plasma,81729,NA,NA,NA
+LS1016,Male,61,Normal (LifeSPAN),Normal,NA,NA,plasma,81470,NA,NA,NA
+LS1018,Male,63,Normal (LifeSPAN),Normal,NA,NA,plasma,98031,NA,NA,NA
+LS1021,Male,82,Normal (LifeSPAN),Normal,NA,NA,plasma,89641,NA,NA,NA
+LS1022,Male,60,Normal (LifeSPAN),Normal,1,NA,plasma,98447,NA,NA,NA
+LS1023,Female,57,Normal (LifeSPAN),Normal,NA,NA,plasma,88369,NA,NA,NA
+LS1024,Female,57,Normal (LifeSPAN),Normal,1,NA,plasma,92194,NA,NA,NA
+v1516,Male,63,"Falls NOS, neuropathy, EtOH past",CU Other/NOS,NA,NA,plasma,92087,NA,NA,NA
+v1539,Male,71,Normal Pressure Hydrocephalus,CU Other/NOS,NA,NA,plasma,86906,NA,NA,NA
+v1552,Female,59,"Normal, a few WMHs",CU Other/NOS,NA,NA,plasma,82903,NA,NA,NA
+v1573,Female,73,"Headache, chronic daily, normal cognition",CU Other/NOS,NA,NA,plasma,95068,NA,NA,NA
+v1593,Male,74,Normal Pressure Hydrocephalus,CU NPH,NA,NA,plasma,92370,NA,NA,NA
+100437,Male,73.86575342465754,MCI,NA,CSF_B,0,CSF,88042,Metformin,Placebo,1
+100437,Male,73.86575342465754,MCI,NA,Plasma_1,0,plasma,88051,Metformin,Placebo,0
+100437,Male,73.86575342465754,MCI,NA,CSF_M,58,CSF,90665,Metformin,Placebo,1
+100437,Male,73.86575342465754,MCI,NA,Plasma_3,58,plasma,90672,Metformin,Placebo,1
+100437,Male,73.86575342465754,MCI,NA,Plasma_5,124,plasma,93810,Metformin,Placebo,1
+105803,Female,73.24109589041096,MCI,NA,CSF_B,0,CSF,94314,Placebo,Metformin,1
+105803,Female,73.24109589041096,MCI,NA,Plasma_1,0,plasma,94321,Placebo,Metformin,1
+105803,Female,73.24109589041096,MCI,NA,CSF_P,59,CSF,96831,Placebo,Metformin,1
+105803,Female,73.24109589041096,MCI,NA,Plasma_3,59,plasma,96764,Placebo,Metformin,0
+105803,Female,73.24109589041096,MCI,NA,Plasma_5,119,plasma,99096,Placebo,Metformin,1
+109885,Male,73.8986301369863,AD,NA,CSF_B,0,CSF,88498,Metformin,Placebo,1
+109885,Male,73.8986301369863,AD,NA,Plasma_1,0,plasma,88537,Metformin,Placebo,1
+109885,Male,73.8986301369863,AD,NA,Plasma_3,66,plasma,92250,Metformin,Placebo,0
+109885,Male,73.8986301369863,AD,NA,Plasma_5,127,plasma,94395,Metformin,Placebo,0
+110287,Male,66.82465753424657,AD,NA,CSF_B,0,CSF,87464,Placebo,Metformin,1
+110287,Male,66.82465753424657,AD,NA,Plasma_1,0,plasma,87439,Placebo,Metformin,1
+110287,Male,66.82465753424657,AD,NA,CSF_P,56,CSF,89917,Placebo,Metformin,1
+110287,Male,66.82465753424657,AD,NA,Plasma_3,56,plasma,89947,Placebo,Metformin,1
+110287,Male,66.82465753424657,AD,NA,Plasma_5,110,plasma,92858,Placebo,Metformin,0
+114080,Male,63.28219178082192,MCI,NA,CSF_B,0,CSF,107713,Placebo,Metformin,0
+114080,Male,63.28219178082192,MCI,NA,Plasma_1,0,plasma,107725,Placebo,Metformin,1
+114080,Male,63.28219178082192,MCI,NA,CSF_P,54,CSF,109903,Placebo,Metformin,0
+114080,Male,63.28219178082192,MCI,NA,Plasma_3,54,plasma,109871,Placebo,Metformin,0
+114080,Male,63.28219178082192,MCI,NA,Plasma_5,110,plasma,111498,Placebo,Metformin,1
+116702,Male,60.81369863013698,AD,NA,CSF_B,0,CSF,87302,Metformin,Placebo,1
+116702,Male,60.81369863013698,AD,NA,Plasma_1,0,plasma,87316,Metformin,Placebo,1
+116702,Male,60.81369863013698,AD,NA,CSF_M,58,CSF,90002,Metformin,Placebo,0
+116702,Male,60.81369863013698,AD,NA,Plasma_3,58,plasma,90037,Metformin,Placebo,1
+116702,Male,60.81369863013698,AD,NA,Plasma_5,113,plasma,92873,Metformin,Placebo,0
+116720,Female,74.95890410958904,AD,NA,CSF_B,0,CSF,89494,Metformin,Placebo,0
+116720,Female,74.95890410958904,AD,NA,Plasma_1,0,plasma,89521,Metformin,Placebo,2
+116720,Female,74.95890410958904,AD,NA,CSF_M,58,CSF,92672,Metformin,Placebo,0
+116720,Female,74.95890410958904,AD,NA,Plasma_3,58,plasma,92696,Metformin,Placebo,1
+116720,Female,74.95890410958904,AD,NA,Plasma_5,133,plasma,95518,Metformin,Placebo,0
+116810,Female,78.852054794520555,AD,NA,CSF_B,0,CSF,87850,Placebo,Metformin,1
+116810,Female,78.852054794520555,AD,NA,Plasma_1,0,plasma,87877,Placebo,Metformin,1
+116810,Female,78.852054794520555,AD,NA,CSF_P,68,CSF,90835,Placebo,Metformin,1
+116810,Female,78.852054794520555,AD,NA,Plasma_3,68,plasma,90849,Placebo,Metformin,1
+116810,Female,78.852054794520555,AD,NA,Plasma_5,131,plasma,93815,Placebo,Metformin,1
+117223,Female,59.74520547945205,MCI,NA,CSF_B,0,CSF,86277,Metformin,Placebo,0
+117223,Female,59.74520547945205,MCI,NA,Plasma_1,0,plasma,86317,Metformin,Placebo,0
+117223,Female,59.74520547945205,MCI,NA,CSF_M,52,CSF,88481,Metformin,Placebo,1
+117223,Female,59.74520547945205,MCI,NA,Plasma_3,52,plasma,88531,Metformin,Placebo,1
+117223,Female,59.74520547945205,MCI,NA,Plasma_5,115,plasma,92088,Metformin,Placebo,0
+117294,Male,55.92328767123288,AD,NA,CSF_B,0,CSF,89287,Metformin,Placebo,1
+117294,Male,55.92328767123288,AD,NA,Plasma_1,0,plasma,89294,Metformin,Placebo,1
+117294,Male,55.92328767123288,AD,NA,CSF_M,63,CSF,92538,Metformin,Placebo,1
+117294,Male,55.92328767123288,AD,NA,Plasma_3,63,plasma,92549,Metformin,Placebo,1
+117294,Male,55.92328767123288,AD,NA,Plasma_5,114,plasma,94426,Metformin,Placebo,0
+117600,Female,67.7095890410959,AD,NA,CSF_B,0,CSF,85459,Placebo,Metformin,1
+117600,Female,67.7095890410959,AD,NA,Plasma_1,0,plasma,85449,Placebo,Metformin,1
+117600,Female,67.7095890410959,AD,NA,CSF_P,57,CSF,88156,Placebo,Metformin,0
+117600,Female,67.7095890410959,AD,NA,Plasma_3,57,plasma,88179,Placebo,Metformin,0
+117600,Female,67.7095890410959,AD,NA,Plasma_5,140,plasma,92401,Placebo,Metformin,0
+117736,Male,61.2,MCI,NA,CSF_B,0,CSF,93926,Placebo,Metformin,1
+117736,Male,61.2,MCI,NA,Plasma_1,0,plasma,93831,Placebo,Metformin,1
+117736,Male,61.2,MCI,NA,Plasma_3,47,plasma,95744,Placebo,Metformin,1
+117736,Male,61.2,MCI,NA,CSF_P,78,CSF,97034,Placebo,Metformin,1
+117736,Male,61.2,MCI,NA,Plasma_5,105,plasma,98513,Placebo,Metformin,1
+117758,Male,76.9068493150685,AD,NA,CSF_B,0,CSF,88726,Placebo,Metformin,0
+117758,Male,76.9068493150685,AD,NA,Plasma_1,0,plasma,88710,Placebo,Metformin,0
+117758,Male,76.9068493150685,AD,NA,Plasma_3,63,plasma,92234,Placebo,Metformin,1
+117758,Male,76.9068493150685,AD,NA,Plasma_5,123,plasma,94281,Placebo,Metformin,1
+117761,Male,71.76986301369863,MCI,NA,CSF_B,0,CSF,86500,Placebo,Metformin,1
+117761,Male,71.76986301369863,MCI,NA,Plasma_1,0,plasma,86537,Placebo,Metformin,0
+117761,Male,71.76986301369863,MCI,NA,CSF_P,56,CSF,89056,Placebo,Metformin,1
+117761,Male,71.76986301369863,MCI,NA,Plasma_3,56,plasma,89099,Placebo,Metformin,1
+117761,Male,71.76986301369863,MCI,NA,Plasma_5,112,plasma,92232,Placebo,Metformin,1
+117762,Female,74.78630136986301,MCI,NA,CSF_B,0,CSF,86700,Metformin,Placebo,1
+117762,Female,74.78630136986301,MCI,NA,Plasma_1,0,plasma,86743,Metformin,Placebo,1
+117762,Female,74.78630136986301,MCI,NA,CSF_M,55,CSF,89320,Metformin,Placebo,0
+117762,Female,74.78630136986301,MCI,NA,Plasma_3,55,plasma,89302,Metformin,Placebo,1
+117762,Female,74.78630136986301,MCI,NA,Plasma_5,118,plasma,92555,Metformin,Placebo,1
+117863,Female,80.24931506849315,MCI,NA,CSF_B,0,CSF,94366,Placebo,Metformin,1
+117863,Female,80.24931506849315,MCI,NA,Plasma_1,0,plasma,94393,Placebo,Metformin,0
+117863,Female,80.24931506849315,MCI,NA,CSF_P,91,CSF,98462,Placebo,Metformin,0
+117863,Female,80.24931506849315,MCI,NA,Plasma_3,91,plasma,98436,Placebo,Metformin,1
+117863,Female,80.24931506849315,MCI,NA,Plasma_5,147,plasma,99944,Placebo,Metformin,1
+117883,Female,71.47945205479452,AD,NA,CSF_B,0,CSF,97975,Metformin,Placebo,1
+117883,Female,71.47945205479452,AD,NA,Plasma_1,0,plasma,97823,Metformin,Placebo,1
+117883,Female,71.47945205479452,AD,NA,CSF_M,56,CSF,99699,Metformin,Placebo,1
+117883,Female,71.47945205479452,AD,NA,Plasma_3,56,plasma,99708,Metformin,Placebo,1
+117883,Female,71.47945205479452,AD,NA,Plasma_5,112,plasma,101845,Metformin,Placebo,0
+117939,Male,71.8986301369863,MCI,NA,CSF_B,0,CSF,NA,Placebo,Metformin,1
+117939,Male,71.8986301369863,MCI,NA,Plasma_1,0,plasma,103181,Placebo,Metformin,1
+117939,Male,71.8986301369863,MCI,NA,Plasma_3,33,plasma,104198,Placebo,Metformin,0
+117939,Male,71.8986301369863,MCI,NA,CSF_P,64,CSF,105054,Placebo,Metformin,1
+117939,Male,71.8986301369863,MCI,NA,Plasma_5,92,plasma,105971,Placebo,Metformin,0
+119043,Male,74.4958904109589,MCI,NA,CSF_B,0,CSF,110635,Metformin,Placebo,1
+119043,Male,74.4958904109589,MCI,NA,Plasma_1,0,plasma,110642,Metformin,Placebo,1
+119043,Male,74.4958904109589,MCI,NA,Plasma_3,85,plasma,113423,Metformin,Placebo,1
+119043,Male,74.4958904109589,MCI,NA,Plasma_5,132,plasma,115259,Metformin,Placebo,1
+119521,Female,72,MCI,NA,Plasma_1,0,plasma,110765,Metformin,Placebo,1
+119521,Female,72,MCI,NA,CSF_M,71,CSF,113227,Metformin,Placebo,1
+119521,Female,72,MCI,NA,Plasma_3,71,plasma,113313,Metformin,Placebo,1
+119521,Female,72,MCI,NA,Plasma_5,133,plasma,115580,Metformin,Placebo,0
+H0342,Female,74,Dem_AD,dementia_due_to_other,4,1190,plasma,H0342.1,MCIAPLUS,DEMENTED,NA
+H0342,Female,75,Dem_AD,dementia_due_to_other,5,1603,plasma,H0342.2,MCIAPLUS,DEMENTED,NA
+H0342,Female,76,Dem_AD,dementia_due_to_other,6,2068,plasma,H0342.3,MCIAPLUS,DEMENTED,NA
+H0695,Male,83,Dem_AD,dementia_due_to_AD,1,0,plasma,H0695.1,DEMENTED,DEM-AMNDEM,NA
+H0695,Male,84,Dem_AD,dementia_due_to_AD,2,428,plasma,H0695.2,DEMENTED,DEM-AMNDEM,NA
+H0695,Male,85,Dem_AD,dementia_due_to_AD,3,813,plasma,H0695.3,DEMENTED,DEM-AMNDEM,NA
+H0876,Male,83,Dem_AD,dementia_due_to_AD,1,0,plasma,H0876.1,DEMENTED,DEM-AMNDEM,NA
+H0876,Male,85,Dem_AD,dementia_due_to_AD,3,732,plasma,H0876.3,DEMENTED,DEM-AMNDEM,NA
+H0876,Male,86,Dem_AD,dementia_due_to_AD,4,1249,plasma,H0876.4,DEMENTED,DEM-AMNDEM,NA
+H0041,Male,72,Dem_AD,dementia_due_to_AD,3,749,plasma,H0041.1,MCIAPLUS,DEM-AMNDEM,NA
+H0041,Male,73,Dem_AD,dementia_due_to_AD,4,1134,plasma,H0041.2,MCIAPLUS,DEM-AMNDEM,NA
+H0041,Male,75,Dem_AD,dementia_due_to_AD,5,1560,plasma,H0041.3,MCIAPLUS,DEM-AMNDEM,NA
+H0049,Female,68,Dem_AD,dementia_due_to_AD,1,0,plasma,H0049.1,DEMENTED,DEMENTED,NA
+H0049,Female,70,Dem_AD,dementia_due_to_AD,2,781,plasma,H0049.2,DEMENTED,DEMENTED,NA
+H0049,Female,71,Dem_AD,dementia_due_to_AD,3,1124,plasma,H0049.3,DEMENTED,DEMENTED,NA
+H0060,Female,77,Dem_AD,dementia_due_to_AD,2,401,plasma,H0060.1,MCIAMEM,DEM-AMNDEM,NA
+H0060,Female,78,Dem_AD,dementia_due_to_AD,3,853,plasma,H0060.2,MCIAMEM,DEM-AMNDEM,NA
+H0060,Female,80,Dem_AD,dementia_due_to_AD,4,1231,plasma,H0060.3,MCIAMEM,DEM-AMNDEM,NA
+H0105,Male,76,Dem_AD,dementia_due_to_AD,4,1657,plasma,H0105.2,DEMENTED,DEMENTED,NA
+H0105,Male,77,Dem_AD,dementia_due_to_AD,5,2166,plasma,H0105.3,DEMENTED,DEMENTED,NA
+H0258,Male,70,Dem_AD,dementia_due_to_AD,4,1036,plasma,H0258.1,DEMENTED,DEMENTED,NA
+H0258,Male,71,Dem_AD,dementia_due_to_AD,5,1413,plasma,H0258.2,DEMENTED,DEMENTED,NA
+H0258,Male,72,Dem_AD,dementia_due_to_AD,6,1935,plasma,H0258.3,DEMENTED,DEMENTED,NA
+H0312,Male,77,Dem_AD,dementia_due_to_AD,3,783,plasma,H0312.1,DEMENTED,DEM-AMNDEM,NA
+H0312,Male,80,Dem_AD,dementia_due_to_AD,5,1601,plasma,H0312.3,DEMENTED,DEM-AMNDEM,NA
+H0312,Male,80,Dem_AD,dementia_due_to_AD,6,1958,plasma,H0312.4,DEMENTED,DEM-AMNDEM,NA
+H0334,Female,61,Dem_AD,dementia_due_to_AD,3,976,plasma,H0334.2,DEMENTED,DEMENTED,NA
+H0334,Female,62,Dem_AD,dementia_due_to_AD,4,1407,plasma,H0334.3,DEMENTED,DEMENTED,NA
+H0334,Female,63,Dem_AD,dementia_due_to_AD,5,1900,plasma,H0334.4,DEMENTED,DEMENTED,NA
+H0474,Male,77,Dem_AD,dementia_due_to_AD,2,364,plasma,H0474.1,DEMENTED,DEMENTED,NA
+H0474,Male,79,Dem_AD,dementia_due_to_AD,3,889,plasma,H0474.2,DEMENTED,DEMENTED,NA
+H0474,Male,80,Dem_AD,dementia_due_to_AD,4,1337,plasma,H0474.3,DEMENTED,DEMENTED,NA
+H0502,Female,76,Dem_AD,dementia_due_to_AD,4,1239,plasma,H0502.1,DEMENTED,DEM-AMNDEM,NA
+H0502,Female,77,Dem_AD,dementia_due_to_AD,5,1652,plasma,H0502.2,DEMENTED,DEM-AMNDEM,NA
+H0502,Female,79,Dem_AD,dementia_due_to_AD,6,2247,plasma,H0502.3,DEMENTED,DEM-AMNDEM,NA
+H0674,Female,72,Dem_AD,dementia_due_to_AD,1,0,plasma,H0674.1,DEMENTED,DEM-AMNDEM,NA
+H0674,Female,73,Dem_AD,dementia_due_to_AD,2,445,plasma,H0674.2,DEMENTED,DEM-AMNDEM,NA
+H0674,Female,74,Dem_AD,dementia_due_to_AD,3,791,plasma,H0674.3,DEMENTED,DEM-AMNDEM,NA
+H0803,Female,81,Dem_AD,dementia_due_to_AD,1,0,plasma,H0803.1,DEMENTED,DEMENTED,NA
+H0803,Female,82,Dem_AD,dementia_due_to_AD,2,401,plasma,H0803.2,DEMENTED,DEMENTED,NA
+H0803,Female,83,Dem_AD,dementia_due_to_AD,3,773,plasma,H0803.3,DEMENTED,DEMENTED,NA
+H0849,Male,78,Dem_AD,dementia_due_to_AD,1,0,plasma,H0849.1,DEMENTED,DEMENTED,NA
+H0849,Male,79,Dem_AD,dementia_due_to_AD,2,349,plasma,H0849.2,DEMENTED,DEMENTED,NA
+H0849,Male,80,Dem_AD,dementia_due_to_AD,3,791,plasma,H0849.3,DEMENTED,DEMENTED,NA
+H0851,Male,87,Dem_AD,dementia_due_to_AD,1,0,plasma,H0851.1,DEMENTED,DEMENTED,NA
+H0851,Male,88,Dem_AD,dementia_due_to_AD,2,343,plasma,H0851.2,DEMENTED,DEMENTED,NA
+H0884,Male,59,Dem_AD,dementia_due_to_AD,1,0,plasma,H0884.1,DEMENTED,DEM-AMNDEM,NA
+H0884,Male,60,Dem_AD,dementia_due_to_AD,2,338,plasma,H0884.2,DEMENTED,DEM-AMNDEM,NA
+H0884,Male,61,Dem_AD,dementia_due_to_AD,3,748,plasma,H0884.3,DEMENTED,DEM-AMNDEM,NA
+H0885,Female,82,Dem_AD,dementia_due_to_AD,1,0,plasma,H0885.1,DEMENTED,DEM-AMNDEM,NA
+H0885,Female,83,Dem_AD,dementia_due_to_AD,2,349,plasma,H0885.2,DEMENTED,DEM-AMNDEM,NA
+H0885,Female,85,Dem_AD,dementia_due_to_AD,4,1220,plasma,H0885.4,DEMENTED,DEM-AMNDEM,NA
+H0929,Female,79,Dem_AD,dementia_due_to_AD,1,0,plasma,H0929.1,DEMENTED,DEM-AMNDEM,NA
+H0929,Female,80,Dem_AD,dementia_due_to_AD,2,360,plasma,H0929.2,DEMENTED,DEM-AMNDEM,NA
+H0929,Female,81,Dem_AD,dementia_due_to_AD,3,828,plasma,H0929.3,DEMENTED,DEM-AMNDEM,NA
+H0480,Female,87,Dem_AD,dementia_due_to_other,1,0,plasma,H0480.1,DEMENTED,DEMENTED,NA
+H0480,Female,88,Dem_AD,dementia_due_to_other,2,495,plasma,H0480.2,DEMENTED,DEMENTED,NA
+H0480,Female,89,Dem_AD,dementia_due_to_other,3,873,plasma,H0480.3,DEMENTED,DEMENTED,NA
+H0513,Female,58,Dem_Other,dementia_due_to_other,1,0,plasma,H0513.1,DEMENTED,DEMENTED,NA
+H0513,Female,59,Dem_Other,dementia_due_to_other,2,406,plasma,H0513.2,DEMENTED,DEMENTED,NA
+H0513,Female,60,Dem_Other,dementia_due_to_other,3,675,plasma,H0513.3,DEMENTED,DEMENTED,NA
+H0850,Female,75,MCI_Decline_AD,dementia_due_to_AD,1,0,plasma,H0850.1,MCIAMEM,DEM-AMNDEM,NA
+H0850,Female,76,MCI_Decline_AD,dementia_due_to_AD,2,349,plasma,H0850.2,MCIAMEM,DEM-AMNDEM,NA
+H0850,Female,78,MCI_Decline_AD,dementia_due_to_AD,3,791,plasma,H0850.3,MCIAMEM,DEM-AMNDEM,NA
+H0061,Male,78,MCI_Decline_AD,dementia_due_to_AD,2,401,plasma,H0061.1,MCIAMEM,DEM-AMNDEM,NA
+H0061,Male,79,MCI_Decline_AD,dementia_due_to_AD,3,853,plasma,H0061.2,MCIAMEM,DEM-AMNDEM,NA
+H0061,Male,80,MCI_Decline_AD,dementia_due_to_AD,4,1231,plasma,H0061.3,MCIAMEM,DEM-AMNDEM,NA
+H0140,Female,82,MCI_Decline_AD,dementia_due_to_AD,2,359,plasma,H0140.1,MCIAPLUS,DEMENTED,NA
+H0140,Female,83,MCI_Decline_AD,dementia_due_to_AD,3,694,plasma,H0140.2,MCIAPLUS,DEMENTED,NA
+H0140,Female,84,MCI_Decline_AD,dementia_due_to_AD,4,1132,plasma,H0140.3,MCIAPLUS,DEMENTED,NA
+H0143,Female,72,MCI_Decline_AD,dementia_due_to_AD,3,739,plasma,H0143.1,MCIAPLUS,DEM-AMNDEM,NA
+H0143,Female,73,MCI_Decline_AD,dementia_due_to_AD,4,1119,plasma,H0143.2,MCIAPLUS,DEM-AMNDEM,NA
+H0143,Female,74,MCI_Decline_AD,dementia_due_to_AD,5,1567,plasma,H0143.3,MCIAPLUS,DEM-AMNDEM,NA
+H0233,Male,73,MCI_Decline_AD,dementia_due_to_AD,2,414,plasma,H0233.1,MCIAPLUS,DEM-AMNDEM,NA
+H0233,Male,76,MCI_Decline_AD,dementia_due_to_AD,4,1338,plasma,H0233.3,MCIAPLUS,DEM-AMNDEM,NA
+H0233,Male,77,MCI_Decline_AD,dementia_due_to_AD,5,1800,plasma,H0233.4,MCIAPLUS,DEM-AMNDEM,NA
+H0401,Female,78,MCI_Decline_AD,dementia_due_to_AD,2,515,plasma,H0401.1,IMPNOMCI,DEMENTED,NA
+H0442,Male,67,MCI_Decline_AD,dementia_due_to_AD,3,644,plasma,H0442.1,MCINON1,DEMENTED,NA
+H0442,Male,69,MCI_Decline_AD,dementia_due_to_AD,4,1176,plasma,H0442.2,MCINON1,DEMENTED,NA
+H0442,Male,70,MCI_Decline_AD,dementia_due_to_AD,5,1540,plasma,H0442.3,MCINON1,DEMENTED,NA
+H0529,Male,92,MCI_Decline_AD,dementia_due_to_other,3,900,plasma,H0529.1,IMPNOMCI,DEM-AMNDEM,NA
+H0529,Male,94,MCI_Decline_AD,dementia_due_to_other,4,1356,plasma,H0529.2,IMPNOMCI,DEM-AMNDEM,NA
+H0529,Male,95,MCI_Decline_AD,dementia_due_to_other,5,1872,plasma,H0529.3,IMPNOMCI,DEM-AMNDEM,NA
+H0559,Female,72,MCI_Decline_AD,dementia_due_to_AD,1,0,plasma,H0559.1,MCIAPLUS,DEMENTED,NA
+H0559,Female,73,MCI_Decline_AD,dementia_due_to_AD,2,410,plasma,H0559.2,MCIAPLUS,DEMENTED,NA
+H0722,Male,79,MCI_Decline_AD,dementia_due_to_other,4,1315,plasma,H0722.1,MCIAPLUS,"DEM-AMNDEM, DEM-FTDSYN",NA
+H0722,Male,83,MCI_Decline_AD,dementia_due_to_other,8,2906,plasma,H0722.5,MCIAPLUS,"DEM-AMNDEM, DEM-FTDSYN",NA
+H2012,Male,68,MCI_Decline_AD,dementia_due_to_AD,1,0,plasma,H2012.1,MCIAPLUS,DEM-PCA,NA
+H2012,Male,69,MCI_Decline_AD,dementia_due_to_AD,2,379,plasma,H2012.2,MCIAPLUS,DEM-PCA,NA
+H0002,Female,74,MCI_Decline_AD,dementia_due_to_AD,3,700,plasma,H0002.1,MCIAMEM,DEMENTED,NA
+H0002,Female,76,MCI_Decline_AD,dementia_due_to_AD,4,1130,plasma,H0002.2,MCIAMEM,DEMENTED,NA
+H0168,Male,80,MCI_Decline_AD,dementia_due_to_AD,1,0,plasma,H0168.1,MCIAPLUS,DEMENTED,NA
+H0168,Male,81,MCI_Decline_AD,dementia_due_to_AD,2,427,plasma,H0168.2,MCIAPLUS,DEMENTED,NA
+H0168,Male,82,MCI_Decline_AD,dementia_due_to_AD,3,1015,plasma,H0168.3,MCIAPLUS,DEMENTED,NA
+H0225,Male,58,MCI_Decline_AD,dementia_due_to_AD,2,420,plasma,H0225.1,IMPNOMCI,DEM-AMNDEM,NA
+H0225,Male,59,MCI_Decline_AD,dementia_due_to_AD,3,833,plasma,H0225.2,IMPNOMCI,DEM-AMNDEM,NA
+H0225,Male,60,MCI_Decline_AD,dementia_due_to_AD,4,1343,plasma,H0225.3,IMPNOMCI,DEM-AMNDEM,NA
+H0348,Male,86,MCI_Decline_AD,dementia_due_to_AD,2,441,plasma,H0348.1,MCIAPLUS,DEMENTED,NA
+H0348,Male,87,MCI_Decline_AD,dementia_due_to_AD,3,852,plasma,H0348.2,MCIAPLUS,DEMENTED,NA
+H0348,Male,89,MCI_Decline_AD,dementia_due_to_AD,4,1314,plasma,H0348.3,MCIAPLUS,DEMENTED,NA
+H0377,Female,76,MCI_Decline_AD,dementia_due_to_AD,3,836,plasma,H0377.1,DEMENTED,DEMENTED,NA
+H0377,Female,77,MCI_Decline_AD,dementia_due_to_AD,4,1200,plasma,H0377.2,DEMENTED,DEMENTED,NA
+H0377,Female,78,MCI_Decline_AD,dementia_due_to_AD,5,1550,plasma,H0377.3,DEMENTED,DEMENTED,NA
+H0381,Female,84,MCI_Decline_AD,dementia_due_to_other,1,0,plasma,H0381.1,MCIAPLUS,DEM-NAMNDEM,NA
+H0381,Female,85,MCI_Decline_AD,dementia_due_to_other,2,415,plasma,H0381.2,MCIAPLUS,DEM-NAMNDEM,NA
+H0425,Male,78,MCI_Decline_AD,dementia_due_to_AD,3,783,plasma,H0425.1,MCIAPLUS,DEM-AMNDEM,NA
+H0425,Male,81,MCI_Decline_AD,dementia_due_to_AD,5,1703,plasma,H0425.3,MCIAPLUS,DEM-AMNDEM,NA
+H0425,Male,81,MCI_Decline_AD,dementia_due_to_AD,6,2004,plasma,H0425.4,MCIAPLUS,DEM-AMNDEM,NA
+H0461,Male,79,MCI_Decline_AD,dementia_due_to_AD,2,454,plasma,H0461.1,IMPNOMCI,DEM-AMNDEM,NA
+H0461,Male,81,MCI_Decline_AD,dementia_due_to_AD,3,1014,plasma,H0461.2,IMPNOMCI,DEM-AMNDEM,NA
+H0461,Male,82,MCI_Decline_AD,dementia_due_to_AD,4,1502,plasma,H0461.3,IMPNOMCI,DEM-AMNDEM,NA
+H0548,Female,77,MCI_Decline_AD,dementia_due_to_AD,1,0,plasma,H0548.1,MCIAPLUS,DEMENTED,NA
+H0548,Female,79,MCI_Decline_AD,dementia_due_to_AD,2,434,plasma,H0548.2,MCIAPLUS,DEMENTED,NA
+H0775,Female,73,MCI_Decline_AD,dementia_due_to_AD,2,399,plasma,H0775.1,MCIAPLUS,DEMENTED,NA
+H0775,Female,74,MCI_Decline_AD,dementia_due_to_AD,3,791,plasma,H0775.2,MCIAPLUS,DEMENTED,NA
+H0775,Female,75,MCI_Decline_AD,dementia_due_to_AD,4,1113,plasma,H0775.3,MCIAPLUS,DEMENTED,NA
+H0860,Male,66,MCI_Decline_AD,dementia_due_to_AD,1,0,plasma,H0860.1,MCIAPLUS,DEM-AMNDEM,NA
+H0860,Male,67,MCI_Decline_AD,dementia_due_to_AD,2,433,plasma,H0860.2,MCIAPLUS,DEM-AMNDEM,NA
+H0860,Male,68,MCI_Decline_AD,dementia_due_to_AD,3,776,plasma,H0860.3,MCIAPLUS,DEM-AMNDEM,NA
+H0981,Female,52,MCI_Decline_AD,dementia_due_to_AD,1,0,plasma,H0981.1,MCIAPLUS,DEM-AMNDEM,NA
+H0981,Female,53,MCI_Decline_AD,dementia_due_to_AD,2,357,plasma,H0981.2,MCIAPLUS,DEM-AMNDEM,NA
+H0981,Female,54,MCI_Decline_AD,dementia_due_to_AD,3,744,plasma,H0981.3,MCIAPLUS,DEM-AMNDEM,NA
+H0978,Female,61,MCI_Decline_AD,dementia_due_to_other,1,0,plasma,H0978.1,MCIAPLUS,DEM-NAMNDEM,NA
+H0978,Female,62,MCI_Decline_AD,dementia_due_to_other,2,538,plasma,H0978.2,MCIAPLUS,DEM-NAMNDEM,NA
+H0522,Female,66,MCI_Decline_AD,dementia_due_to_AD,1,0,plasma,H0522.1,MCIAMEM,DEM-AMNDEM,NA
+H0522,Female,69,MCI_Decline_AD,dementia_due_to_AD,3,965,plasma,H0522.3,MCIAMEM,DEM-AMNDEM,NA
+H0522,Female,72,MCI_Decline_AD,dementia_due_to_AD,6,2102,plasma,H0522.6,MCIAMEM,DEM-AMNDEM,NA
+H0708,Male,78,MCI_Decline_AD,dementia_due_to_AD,1,0,plasma,H0708.1,MCIAPLUS,DEM-AMNDEM,NA
+H0708,Male,79,MCI_Decline_AD,dementia_due_to_AD,2,423,plasma,H0708.2,MCIAPLUS,DEM-AMNDEM,NA
+H0708,Male,80,MCI_Decline_AD,dementia_due_to_AD,3,815,plasma,H0708.3,MCIAPLUS,DEM-AMNDEM,NA
+H0602,Male,78,MCI_Decline_AD,dementia_due_to_other,1,0,plasma,H0602.1,MCIAPLUS,DEM-PPASYN,NA
+H0602,Male,79,MCI_Decline_AD,dementia_due_to_other,2,370,plasma,H0602.2,MCIAPLUS,DEM-PPASYN,NA
+H0602,Male,80,MCI_Decline_AD,dementia_due_to_other,3,797,plasma,H0602.3,MCIAPLUS,DEM-PPASYN,NA
+H0126,Male,77,MCI_Decline_AD,dementia_due_to_AD,2,401,plasma,H0126.1,MCIAPLUS,DEM-AMNDEM,NA
+H0126,Male,79,MCI_Decline_AD,dementia_due_to_AD,3,917,plasma,H0126.2,MCIAPLUS,DEM-AMNDEM,NA
+H0126,Male,80,MCI_Decline_AD,dementia_due_to_AD,4,1367,plasma,H0126.3,MCIAPLUS,DEM-AMNDEM,NA
+H0558,Female,89,MCI_Decline_AD,dementia_due_to_AD,3,1126,plasma,H0558.1,MCIAMEM,DEM-AMNDEM,NA
+H0558,Female,90,MCI_Decline_AD,dementia_due_to_AD,4,1546,plasma,H0558.2,MCIAMEM,DEM-AMNDEM,NA
+H0558,Female,91,MCI_Decline_AD,dementia_due_to_AD,5,1952,plasma,H0558.3,MCIAMEM,DEM-AMNDEM,NA
+H0190,Male,84,MCI_Stable_AD,dementia_due_to_AD,3,835,plasma,H0190.2,DEMENTED,IMPNOMCI,NA
+H0190,Male,86,MCI_Stable_AD,dementia_due_to_AD,4,1267,plasma,H0190.3,DEMENTED,IMPNOMCI,NA
+H0190,Male,87,MCI_Stable_AD,dementia_due_to_AD,5,1696,plasma,H0190.4,DEMENTED,IMPNOMCI,NA
+H0059,Male,72,MCI_Stable_AD,MCI_due_to_AD,2,427,plasma,H0059.1,MCIAMEM,MCIAMEM,NA
+H0059,Male,73,MCI_Stable_AD,MCI_due_to_AD,3,790,plasma,H0059.2,MCIAMEM,MCIAMEM,NA
+H0059,Male,74,MCI_Stable_AD,MCI_due_to_AD,4,1170,plasma,H0059.3,MCIAMEM,MCIAMEM,NA
+H0221,Male,76,MCI_Stable_AD,MCI_due_to_AD,1,0,plasma,H0221.1,MCIAMEM,MCIAMEM,NA
+H0221,Male,77,MCI_Stable_AD,MCI_due_to_AD,2,437,plasma,H0221.2,MCIAMEM,MCIAMEM,NA
+H0221,Male,79,MCI_Stable_AD,MCI_due_to_AD,4,1236,plasma,H0221.3,MCIAMEM,MCIAMEM,NA
+H0499,Male,88,MCI_Stable_AD,MCI_due_to_AD,4,1337,plasma,H0499.2,IMPNOMCI,IMPNOMCI,NA
+H0499,Male,89,MCI_Stable_AD,MCI_due_to_AD,5,1799,plasma,H0499.3,IMPNOMCI,IMPNOMCI,NA
+H0626,Female,73,MCI_Stable_AD,MCI_due_to_AD,1,0,plasma,H0626.1,MCIAMEM,IMPNOMCI,NA
+H0626,Female,75,MCI_Stable_AD,MCI_due_to_AD,2,398,plasma,H0626.2,MCIAMEM,IMPNOMCI,NA
+H0626,Female,76,MCI_Stable_AD,MCI_due_to_AD,3,755,plasma,H0626.3,MCIAMEM,IMPNOMCI,NA
+H0866,Male,70,MCI_Stable_AD,dementia_due_to_AD,1,0,plasma,H0866.1,MCIAMEM,DEM-AMNDEM,NA
+H0866,Male,71,MCI_Stable_AD,dementia_due_to_AD,2,365,plasma,H0866.2,MCIAMEM,DEM-AMNDEM,NA
+H0866,Male,72,MCI_Stable_AD,dementia_due_to_AD,3,762,plasma,H0866.3,MCIAMEM,DEM-AMNDEM,NA
+H0118,Male,80,MCI_Stable_AD,MCI_due_to_AD,2,381,plasma,H0118.1,MCIAMEM,MCIAPLUS,NA
+H0118,Male,81,MCI_Stable_AD,MCI_due_to_AD,3,759,plasma,H0118.2,MCIAMEM,MCIAPLUS,NA
+H0118,Male,85,MCI_Stable_AD,MCI_due_to_AD,6,2067,plasma,H0118.4,MCIAMEM,MCIAPLUS,NA
+H0423,Male,84,MCI_Stable_AD,MCI_due_to_AD,2,392,plasma,H0423.1,IMPNOMCI,MCINON2,NA
+H0423,Male,85,MCI_Stable_AD,MCI_due_to_AD,3,810,plasma,H0423.2,IMPNOMCI,MCINON2,NA
+H0423,Male,86,MCI_Stable_AD,MCI_due_to_AD,4,1215,plasma,H0423.3,IMPNOMCI,MCINON2,NA
+H0441,Female,91,MCI_Stable_AD,MCI_due_to_AD,2,413,plasma,H0441.1,IMPNOMCI,MCIAPLUS,NA
+H0441,Female,92,MCI_Stable_AD,MCI_due_to_AD,3,864,plasma,H0441.2,IMPNOMCI,MCIAPLUS,NA
+H0441,Female,94,MCI_Stable_AD,MCI_due_to_AD,4,1291,plasma,H0441.3,IMPNOMCI,MCIAPLUS,NA
+H0468,Female,87,MCI_Stable_AD,dementia_due_to_other,3,787,plasma,H0468.3,MCIAPLUS,MCINON2,NA
+H0613,Female,75,MCI_Stable_AD,MCI_due_to_AD,3,1174,plasma,H0613.1,NORMCOG,MCIAPLUS,NA
+H0613,Female,76,MCI_Stable_AD,MCI_due_to_AD,4,1584,plasma,H0613.2,NORMCOG,MCIAPLUS,NA
+H0613,Female,80,MCI_Stable_AD,MCI_due_to_AD,8,3135,plasma,H0613.6,NORMCOG,MCIAPLUS,NA
+H0760,Female,82,MCI_Stable_AD,MCI_due_to_AD,1,0,plasma,H0760.1,MCIAPLUS,IMPNOMCI,NA
+H0760,Female,84,MCI_Stable_AD,MCI_due_to_AD,2,567,plasma,H0760.2,MCIAPLUS,IMPNOMCI,NA
+H0760,Female,85,MCI_Stable_AD,MCI_due_to_AD,3,983,plasma,H0760.3,MCIAPLUS,IMPNOMCI,NA
+H0819,Female,84,MCI_Stable_AD,MCI_due_to_AD,1,0,plasma,H0819.1,MCIAPLUS,MCIAMEM,NA
+H0819,Female,85,MCI_Stable_AD,MCI_due_to_AD,2,569,plasma,H0819.2,MCIAPLUS,MCIAMEM,NA
+H0819,Female,89,MCI_Stable_AD,MCI_due_to_AD,5,1766,plasma,H0819.5,MCIAPLUS,MCIAMEM,NA
+H0843,Female,66,MCI_Stable_AD,MCI_due_to_AD,1,0,plasma,H0843.1,MCIAPLUS,MCIAPLUS,NA
+H0843,Female,67,MCI_Stable_AD,MCI_due_to_AD,2,392,plasma,H0843.2,MCIAPLUS,MCIAPLUS,NA
+H0843,Female,68,MCI_Stable_AD,MCI_due_to_AD,3,747,plasma,H0843.3,MCIAPLUS,MCIAPLUS,NA
+H2031,Male,71,MCI_Stable_AD,MCI_due_to_AD,1,0,plasma,H2031.1,MCIAPLUS,MCIAPLUS,NA
+H2031,Male,73,MCI_Stable_AD,MCI_due_to_AD,3,623,plasma,H2031.3,MCIAPLUS,MCIAPLUS,NA
+H0469,Female,78,MCI_Stable_AD,MCI_due_to_AD,2,371,plasma,H0469.1,MCINON1,MCIAPLUS,NA
+H0469,Female,79,MCI_Stable_AD,MCI_due_to_AD,3,866,plasma,H0469.2,MCINON1,MCIAPLUS,NA
+H0469,Female,80,MCI_Stable_AD,MCI_due_to_AD,4,1274,plasma,H0469.3,MCINON1,MCIAPLUS,NA
+H0407,Male,74,MCI_Stable_AD,MCI_due_to_AD,2,447,plasma,H0407.1,MCIAPLUS,MCIAPLUS,NA
+H0407,Male,75,MCI_Stable_AD,MCI_due_to_AD,3,832,plasma,H0407.2,MCIAPLUS,MCIAPLUS,NA
+H0407,Male,79,MCI_Stable_AD,MCI_due_to_AD,6,2170,plasma,H0407.4,MCIAPLUS,MCIAPLUS,NA
+H0102,Female,83,MCI_Stable_AD,MCI_due_to_AD,1,0,plasma,H0102.1,MCIAMEM,MCIAPLUS,NA
+H0102,Female,84,MCI_Stable_AD,MCI_due_to_AD,2,362,plasma,H0102.2,MCIAMEM,MCIAPLUS,NA
+H0102,Female,86,MCI_Stable_AD,MCI_due_to_AD,3,823,plasma,H0102.3,MCIAMEM,MCIAPLUS,NA
+H0132,Male,84,MCI_Stable_AD,MCI_due_to_AD,1,0,plasma,H0132.1,MCIAMEM,MCIAMEM,NA
+H0132,Male,85,MCI_Stable_AD,MCI_due_to_AD,2,371,plasma,H0132.2,MCIAMEM,MCIAMEM,NA
+H0132,Male,86,MCI_Stable_AD,MCI_due_to_AD,3,813,plasma,H0132.3,MCIAMEM,MCIAMEM,NA
+H0145,Female,71,MCI_Stable_AD,MCI_due_to_AD,2,357,plasma,H0145.1,NORMCOG,MCINON2,NA
+H0145,Female,72,MCI_Stable_AD,MCI_due_to_AD,3,728,plasma,H0145.2,NORMCOG,MCINON2,NA
+H0145,Female,75,MCI_Stable_AD,MCI_due_to_AD,6,1909,plasma,H0145.4,NORMCOG,MCINON2,NA
+H0347,Male,76,MCI_Stable_AD,dementia_due_to_AD,2,385,plasma,H0347.1,MCIAPLUS,DEM-AMNDEM,NA
+H0347,Male,80,MCI_Stable_AD,dementia_due_to_AD,5,1715,plasma,H0347.4,MCIAPLUS,DEM-AMNDEM,NA
+H0347,Male,81,MCI_Stable_AD,dementia_due_to_AD,6,2121,plasma,H0347.5,MCIAPLUS,DEM-AMNDEM,NA
+H0167,Male,80,MCI_Stable_AD,dementia_due_to_AD,2,455,plasma,H0167.1,DEMENTED,MCIAPLUS,NA
+H0167,Male,81,MCI_Stable_AD,dementia_due_to_AD,3,866,plasma,H0167.2,DEMENTED,MCIAPLUS,NA
+H0167,Male,83,MCI_Stable_AD,dementia_due_to_AD,4,1287,plasma,H0167.3,DEMENTED,MCIAPLUS,NA
+H0278,Female,83,MCI_Stable_AD,dementia_due_to_AD,3,900,plasma,H0278.1,DEMENTED,DEM-AMNDEM,NA
+H0278,Female,84,MCI_Stable_AD,dementia_due_to_AD,4,1262,plasma,H0278.2,DEMENTED,DEM-AMNDEM,NA
+H0278,Female,86,MCI_Stable_AD,dementia_due_to_AD,5,1876,plasma,H0278.3,DEMENTED,DEM-AMNDEM,NA
+H0335,Male,83,MCI_Stable_AD,MCI_due_to_AD,2,504,plasma,H0335.1,MCIAMEM,MCIAMEM,NA
+H0335,Male,84,MCI_Stable_AD,MCI_due_to_AD,3,896,plasma,H0335.2,MCIAMEM,MCIAMEM,NA
+H0335,Male,85,MCI_Stable_AD,MCI_due_to_AD,4,1441,plasma,H0335.3,MCIAMEM,MCIAMEM,NA
+H0730,Male,66,MCI_Stable_AD,MCI_due_to_AD,1,0,plasma,H0730.1,MCIAPLUS,MCIAMEM,NA
+H0730,Male,67,MCI_Stable_AD,MCI_due_to_AD,2,397,plasma,H0730.2,MCIAPLUS,MCIAMEM,NA
+H0730,Male,68,MCI_Stable_AD,MCI_due_to_AD,3,724,plasma,H0730.3,MCIAPLUS,MCIAMEM,NA
+H0868,Female,68,MCI_Stable_AD,MCI_due_to_AD,1,0,plasma,H0868.1,MCIAPLUS,MCIAPLUS,NA
+H0868,Female,69,MCI_Stable_AD,MCI_due_to_AD,2,351,plasma,H0868.2,MCIAPLUS,MCIAPLUS,NA
+H0868,Female,71,MCI_Stable_AD,MCI_due_to_AD,4,1198,plasma,H0868.4,MCIAPLUS,MCIAPLUS,NA
+H0008,Female,82,MCI_Stable_AD,dementia_due_to_other,1,0,plasma,H0008.1,MCIAPLUS,DEMENTED,NA
+H0008,Female,83,MCI_Stable_AD,dementia_due_to_other,2,399,plasma,H0008.2,MCIAPLUS,DEMENTED,NA
+H0008,Female,84,MCI_Stable_AD,dementia_due_to_other,3,798,plasma,H0008.3,MCIAPLUS,DEMENTED,NA
+H0366,Male,83,MCI_Stable_AD,MCI_due_to_AD,1,0,plasma,H0366.1,MCINON1,MCIAPLUS,NA
+H0366,Male,85,MCI_Stable_AD,MCI_due_to_AD,2,461,plasma,H0366.2,MCINON1,MCIAPLUS,NA
+H0366,Male,86,MCI_Stable_AD,MCI_due_to_AD,3,860,plasma,H0366.3,MCINON1,MCIAPLUS,NA
+H0202,Female,82,MCI_Stable_AD,dementia_due_to_AD,2,455,plasma,H0202.1,IMPNOMCI,DEM-AMNDEM,NA
+H0202,Female,83,MCI_Stable_AD,dementia_due_to_AD,3,840,plasma,H0202.2,IMPNOMCI,DEM-AMNDEM,NA
+H0202,Female,84,MCI_Stable_AD,dementia_due_to_AD,4,1197,plasma,H0202.3,IMPNOMCI,DEM-AMNDEM,NA
+H0798,Female,73,MCI_Stable_AD,MCI_due_to_AD,1,0,plasma,H0798.1,MCIAPLUS,MCIAPLUS,NA
+H0798,Female,74,MCI_Stable_AD,MCI_due_to_AD,2,551,plasma,H0798.2,MCIAPLUS,MCIAPLUS,NA
+H0798,Female,75,MCI_Stable_AD,MCI_due_to_AD,3,918,plasma,H0798.3,MCIAPLUS,MCIAPLUS,NA
+H0804,Female,76,MCI_Stable_AD,MCI_due_to_AD,1,0,plasma,H0804.1,MCINON1,MCINON1,NA
+H0804,Female,78,MCI_Stable_AD,MCI_due_to_AD,2,391,plasma,H0804.2,MCINON1,MCINON1,NA
+H0804,Female,79,MCI_Stable_AD,MCI_due_to_AD,3,741,plasma,H0804.3,MCINON1,MCINON1,NA
+H0014,Female,89,N,normals_remain_normal,1,0,plasma,H0014.1,NORMCOG,NORMCOG,NA
+H0014,Female,90,N,normals_remain_normal,2,392,plasma,H0014.2,NORMCOG,NORMCOG,NA
+H0014,Female,91,N,normals_remain_normal,3,770,plasma,H0014.3,NORMCOG,NORMCOG,NA
+H0033,Male,56,N,normals_remain_normal,2,364,plasma,H0033.1,NORMCOG,NORMCOG,NA
+H0033,Male,57,N,normals_remain_normal,3,851,plasma,H0033.2,NORMCOG,NORMCOG,NA
+H0033,Male,59,N,normals_remain_normal,4,1309,plasma,H0033.3,NORMCOG,NORMCOG,NA
+H0045,Female,69,N,normals_remain_normal,1,0,plasma,H0045.1,NORMCOG,NORMCOG,NA
+H0045,Female,70,N,normals_remain_normal,2,359,plasma,H0045.2,NORMCOG,NORMCOG,NA
+H0045,Female,71,N,normals_remain_normal,3,731,plasma,H0045.3,NORMCOG,NORMCOG,NA
+H0046,Male,78,N,normals_remain_normal,1,0,plasma,H0046.1,NORMCOG,NORMCOG,NA
+H0046,Male,79,N,normals_remain_normal,2,380,plasma,H0046.2,NORMCOG,NORMCOG,NA
+H0046,Male,80,N,normals_remain_normal,3,769,plasma,H0046.3,NORMCOG,NORMCOG,NA
+H0106,Male,75,N,normals_remain_normal,1,0,plasma,H0106.1,NORMCOG,NORMCOG,NA
+H0106,Male,76,N,normals_remain_normal,2,364,plasma,H0106.2,NORMCOG,NORMCOG,NA
+H0106,Male,78,N,normals_remain_normal,3,760,plasma,H0106.3,NORMCOG,NORMCOG,NA
+H0109,Female,78,N,normals_decline,1,0,plasma,H0109.1,NORMCOG,NORMCOG,NA
+H0109,Female,79,N,normals_decline,2,377,plasma,H0109.2,NORMCOG,NORMCOG,NA
+H0109,Female,81,N,normals_decline,3,790,plasma,H0109.3,NORMCOG,NORMCOG,NA
+H0116,Female,60,N,normals_remain_normal,2,414,plasma,H0116.1,NORMCOG,NORMCOG,NA
+H0116,Female,62,N,normals_remain_normal,3,1086,plasma,H0116.2,NORMCOG,NORMCOG,NA
+H0116,Female,63,N,normals_remain_normal,4,1547,plasma,H0116.3,NORMCOG,NORMCOG,NA
+H0117,Male,60,N,normals_remain_normal,1,0,plasma,H0117.1,NORMCOG,NORMCOG,NA
+H0117,Male,61,N,normals_remain_normal,2,371,plasma,H0117.2,NORMCOG,NORMCOG,NA
+H0117,Male,62,N,normals_remain_normal,3,784,plasma,H0117.3,NORMCOG,NORMCOG,NA
+H0203,Male,75,N,normals_remain_normal,1,0,plasma,H0203.1,NORMCOG,NORMCOG,NA
+H0203,Male,77,N,normals_remain_normal,3,798,plasma,H0203.3,NORMCOG,NORMCOG,NA
+H0203,Male,79,N,normals_remain_normal,5,1487,plasma,H0203.4,NORMCOG,NORMCOG,NA
+H0218,Male,72,N,MCI_due_to_AD,2,492,plasma,H0218.1,IMPNOMCI,IMPNOMCI,NA
+H0218,Male,73,N,MCI_due_to_AD,3,904,plasma,H0218.2,IMPNOMCI,IMPNOMCI,NA
+H0218,Male,74,N,MCI_due_to_AD,4,1372,plasma,H0218.3,IMPNOMCI,IMPNOMCI,NA
+H0222,Female,53,N,normals_remain_normal,1,0,plasma,H0222.1,NORMCOG,NORMCOG,NA
+H0222,Female,56,N,normals_remain_normal,3,895,plasma,H0222.3,NORMCOG,NORMCOG,NA
+H0222,Female,57,N,normals_remain_normal,4,1332,plasma,H0222.4,NORMCOG,NORMCOG,NA
+H0223,Male,63,N,MCI_due_to_AD,2,406,plasma,H0223.1,IMPNOMCI,NORMCOG,NA
+H0223,Male,64,N,MCI_due_to_AD,3,860,plasma,H0223.2,IMPNOMCI,NORMCOG,NA
+H0223,Male,65,N,MCI_due_to_AD,4,1287,plasma,H0223.3,IMPNOMCI,NORMCOG,NA
+H0228,Female,63,N,normals_remain_normal,1,0,plasma,H0228.1,NORMCOG,NORMCOG,NA
+H0228,Female,65,N,normals_remain_normal,3,841,plasma,H0228.3,NORMCOG,NORMCOG,NA
+H0228,Female,67,N,normals_remain_normal,4,1268,plasma,H0228.4,NORMCOG,NORMCOG,NA
+H0254,Female,65,N,normals_remain_normal,1,0,plasma,H0254.1,NORMCOG,NORMCOG,NA
+H0254,Female,66,N,normals_remain_normal,2,489,plasma,H0254.2,NORMCOG,NORMCOG,NA
+H0254,Female,68,N,normals_remain_normal,3,1326,plasma,H0254.3,NORMCOG,NORMCOG,NA
+H0260,Male,81,N,normals_remain_normal,2,504,plasma,H0260.1,NORMCOG,NORMCOG,NA
+H0260,Male,82,N,normals_remain_normal,3,888,plasma,H0260.2,NORMCOG,NORMCOG,NA
+H0260,Male,83,N,normals_remain_normal,4,1334,plasma,H0260.3,NORMCOG,NORMCOG,NA
+H0307,Male,78,N,normals_remain_normal,2,465,plasma,H0307.1,NORMCOG,NORMCOG,NA
+H0307,Male,79,N,normals_remain_normal,3,906,plasma,H0307.2,NORMCOG,NORMCOG,NA
+H0307,Male,80,N,normals_remain_normal,4,1334,plasma,H0307.3,NORMCOG,NORMCOG,NA
+H0317,Male,81,N,MCI_due_to_AD,1,0,plasma,H0317.1,NORMCOG,NORMCOG,NA
+H0317,Male,83,N,MCI_due_to_AD,2,422,plasma,H0317.2,NORMCOG,NORMCOG,NA
+H0317,Male,84,N,MCI_due_to_AD,3,784,plasma,H0317.3,NORMCOG,NORMCOG,NA
+H0368,Female,76,N,normals_remain_normal,1,0,plasma,H0368.1,NORMCOG,NORMCOG,NA
+H0368,Female,77,N,normals_remain_normal,2,379,plasma,H0368.2,NORMCOG,NORMCOG,NA
+H0368,Female,78,N,normals_remain_normal,3,707,plasma,H0368.3,NORMCOG,NORMCOG,NA
+H0383,Male,81,N,MCI_due_to_AD,3,825,plasma,H0383.1,IMPNOMCI,NORMCOG,NA
+H0383,Male,82,N,MCI_due_to_AD,4,1210,plasma,H0383.2,IMPNOMCI,NORMCOG,NA
+H0383,Male,84,N,MCI_due_to_AD,5,1909,plasma,H0383.3,IMPNOMCI,NORMCOG,NA
+H0409,Female,77,N,MCI_due_to_AD,2,492,plasma,H0409.1,NORMCOG,NORMCOG,NA
+H0409,Female,78,N,MCI_due_to_AD,3,890,plasma,H0409.2,NORMCOG,NORMCOG,NA
+H0409,Female,79,N,MCI_due_to_AD,4,1295,plasma,H0409.3,NORMCOG,NORMCOG,NA
+H0430,Female,82,N,normals_remain_normal,3,887,plasma,H0430.1,NORMCOG,NORMCOG,NA
+H0430,Female,83,N,normals_remain_normal,4,1308,plasma,H0430.2,NORMCOG,NORMCOG,NA
+H0430,Female,85,N,normals_remain_normal,5,1726,plasma,H0430.3,NORMCOG,NORMCOG,NA
+H0445,Male,74,N,normals_remain_normal,1,0,plasma,H0445.1,NORMCOG,NORMCOG,NA
+H0445,Male,75,N,normals_remain_normal,2,382,plasma,H0445.2,NORMCOG,NORMCOG,NA
+H0445,Male,76,N,normals_remain_normal,3,792,plasma,H0445.3,NORMCOG,NORMCOG,NA
+H0472,Male,82,N,MCI_due_to_AD,2,392,plasma,H0472.1,IMPNOMCI,NORMCOG,NA
+H0472,Male,83,N,MCI_due_to_AD,3,735,plasma,H0472.2,IMPNOMCI,NORMCOG,NA
+H0472,Male,84,N,MCI_due_to_AD,4,1209,plasma,H0472.3,IMPNOMCI,NORMCOG,NA
+H0483,Male,82,N,MCI_due_to_AD,1,0,plasma,H0483.1,NORMCOG,IMPNOMCI,NA
+H0483,Male,84,N,MCI_due_to_AD,3,812,plasma,H0483.3,NORMCOG,IMPNOMCI,NA
+H0483,Male,85,N,MCI_due_to_AD,4,1187,plasma,H0483.4,NORMCOG,IMPNOMCI,NA
+H0486,Female,76,N,normals_remain_normal,1,0,plasma,H0486.1,NORMCOG,NORMCOG,NA
+H0486,Female,77,N,normals_remain_normal,2,525,plasma,H0486.2,NORMCOG,NORMCOG,NA
+H0486,Female,78,N,normals_remain_normal,3,973,plasma,H0486.3,NORMCOG,NORMCOG,NA
+H0557,Male,85,N,normals_remain_normal,3,1035,plasma,H0557.1,NORMCOG,NORMCOG,NA
+H0557,Male,87,N,normals_remain_normal,4,1488,plasma,H0557.2,NORMCOG,NORMCOG,NA
+H0557,Male,89,N,normals_remain_normal,6,2254,plasma,H0557.4,NORMCOG,NORMCOG,NA
+H0560,Female,90,N,normals_decline,4,1409,plasma,H0560.2,NORMCOG,NORMCOG,NA
+H0560,Female,91,N,normals_decline,5,1794,plasma,H0560.3,NORMCOG,NORMCOG,NA
+H0560,Female,92,N,normals_decline,6,2152,plasma,H0560.4,NORMCOG,NORMCOG,NA
+H0624,Female,75,N,normals_remain_normal,4,1308,plasma,H0624.1,NORMCOG,NORMCOG,NA
+H0624,Female,76,N,normals_remain_normal,5,1729,plasma,H0624.2,NORMCOG,NORMCOG,NA
+H0624,Female,77,N,normals_remain_normal,6,2169,plasma,H0624.3,NORMCOG,NORMCOG,NA
+H0641,Male,70,N,normals_remain_normal,3,910,plasma,H0641.1,NORMCOG,NORMCOG,NA
+H0641,Male,71,N,normals_remain_normal,4,1316,plasma,H0641.2,NORMCOG,NORMCOG,NA
+H0641,Male,72,N,normals_remain_normal,5,1666,plasma,H0641.3,NORMCOG,NORMCOG,NA
+H0698,Female,84,N,normals_remain_normal,1,0,plasma,H0698.1,NORMCOG,NORMCOG,NA
+H0698,Female,88,N,normals_remain_normal,5,1569,plasma,H0698.5,NORMCOG,NORMCOG,NA
+H0698,Female,89,N,normals_remain_normal,6,1834,plasma,H0698.6,NORMCOG,NORMCOG,NA
+H0723,Female,78,N,normals_remain_normal,4,1315,plasma,H0723.1,IMPNOMCI,NORMCOG,NA
+H0723,Female,79,N,normals_remain_normal,5,1729,plasma,H0723.2,IMPNOMCI,NORMCOG,NA
+H0723,Female,81,N,normals_remain_normal,7,2450,plasma,H0723.4,IMPNOMCI,NORMCOG,NA
+H0755,Female,68,N,MCI_due_to_AD,1,0,plasma,H0755.1,NORMCOG,IMPNOMCI,NA
+H0755,Female,69,N,MCI_due_to_AD,2,399,plasma,H0755.2,NORMCOG,IMPNOMCI,NA
+H0755,Female,70,N,MCI_due_to_AD,3,737,plasma,H0755.3,NORMCOG,IMPNOMCI,NA
+H0789,Female,63,N,MCI_due_to_AD,1,0,plasma,H0789.1,NORMCOG,IMPNOMCI,NA
+H0789,Female,64,N,MCI_due_to_AD,2,389,plasma,H0789.2,NORMCOG,IMPNOMCI,NA
+H0789,Female,65,N,MCI_due_to_AD,3,742,plasma,H0789.3,NORMCOG,IMPNOMCI,NA
+H0931,Female,64,N,normals_remain_normal,1,0,plasma,H0931.1,NORMCOG,NORMCOG,NA
+H0931,Female,65,N,normals_remain_normal,2,341,plasma,H0931.2,NORMCOG,NORMCOG,NA
+H0931,Female,66,N,normals_remain_normal,3,798,plasma,H0931.3,NORMCOG,NORMCOG,NA
+H0552,Female,80,Other Neurodegen,dementia_due_to_AD,3,928,plasma,H0552.1,IMPNOMCI,DEM-AMNDEM,NA
+H0552,Female,81,Other Neurodegen,dementia_due_to_AD,4,1380,plasma,H0552.2,IMPNOMCI,DEM-AMNDEM,NA
+H0552,Female,83,Other Neurodegen,dementia_due_to_AD,5,1908,plasma,H0552.3,IMPNOMCI,DEM-AMNDEM,NA
+H0974,Female,56,Other Neurodegen,dementia_due_to_other,2,430,plasma,H0974.2,MCIAPLUS,MCIAPLUS,NA
+H0974,Female,56,Other Neurodegen,dementia_due_to_other,3,734,plasma,H0974.3,MCIAPLUS,MCIAPLUS,NA
+H0249,Female,66,Other Neurodegen,dementia_due_to_other,1,0,plasma,H0249.1,DEMENTED,DEMENTED,NA
+H0249,Female,68,Other Neurodegen,dementia_due_to_other,2,623,plasma,H0249.2,DEMENTED,DEMENTED,NA
+H0586,Female,73,Other Neurodegen,dementia_due_to_other,1,0,plasma,H0586.1,DEMENTED,DEM-FTDSYN,NA
+H0586,Female,74,Other Neurodegen,dementia_due_to_other,2,581,plasma,H0586.2,DEMENTED,DEM-FTDSYN,NA
+H0586,Female,77,Other Neurodegen,dementia_due_to_other,5,1736,plasma,H0586.5,DEMENTED,DEM-FTDSYN,NA
+H0638,Male,61,Other Neurodegen,dementia_due_to_other,1,0,plasma,H0638.1,DEMENTED,DEM-FTDSYN,NA
+H0638,Male,61,Other Neurodegen,dementia_due_to_other,2,231,plasma,H0638.2,DEMENTED,DEM-FTDSYN,NA
+H0638,Male,64,Other Neurodegen,dementia_due_to_other,4,1197,plasma,H0638.5,DEMENTED,DEM-FTDSYN,NA
+H0654,Female,66,Other Neurodegen,dementia_due_to_other,1,0,plasma,H0654.1,DEMENTED,DEMENTED,NA
+H0654,Female,66,Other Neurodegen,dementia_due_to_other,2,311,plasma,H0654.2,DEMENTED,DEMENTED,NA
+H0654,Female,68,Other Neurodegen,dementia_due_to_other,3,776,plasma,H0654.3,DEMENTED,DEMENTED,NA
+H0961,Male,51,Other Neurodegen,dementia_due_to_other,1,0,plasma,H0961.1,DEMENTED,DEM-FTDSYN,NA
+H0961,Male,52,Other Neurodegen,dementia_due_to_other,2,421,plasma,H0961.2,DEMENTED,DEM-FTDSYN,NA
+H6069,Female,72,Other Neurodegen,dementia_due_to_other,1,0,plasma,H6069.1,DEM-NAMNDEM,MCINON2,NA
+H6020,Male,85,Other Neurodegen,dementia_due_to_other,3,812,plasma,H6020.1,DEMENTED,DEMENTED,NA
+H6020,Male,86,Other Neurodegen,dementia_due_to_other,4,1211,plasma,H6020.2,DEMENTED,DEMENTED,NA
+H6020,Male,87,Other Neurodegen,dementia_due_to_other,5,1674,plasma,H6020.3,DEMENTED,DEMENTED,NA
+H6044,Male,68,Other Neurodegen,dementia_due_to_other,1,0,plasma,H6044.1,DEMENTED,DEM-LBDSYN,NA
+H6044,Male,69,Other Neurodegen,dementia_due_to_other,2,434,plasma,H6044.2,DEMENTED,DEM-LBDSYN,NA
+H6045,Male,72,Other Neurodegen,dementia_due_to_other,1,0,plasma,H6045.1,DEMENTED,DEM-LBDSYN,NA
+H6045,Male,73,Other Neurodegen,dementia_due_to_other,2,455,plasma,H6045.2,DEMENTED,DEM-LBDSYN,NA
+H0647,Female,73,Other Neurodegen,dementia_due_to_other,1,0,plasma,H0647.1,DEMENTED,DEMENTED,NA
+H0647,Female,74,Other Neurodegen,dementia_due_to_other,2,350,plasma,H0647.2,DEMENTED,DEMENTED,NA
+H0653,Male,71,Other Neurodegen,dementia_due_to_other,1,0,plasma,H0653.1,DEMENTED,DEMENTED,NA
+H0653,Male,71,Other Neurodegen,dementia_due_to_other,2,259,plasma,H0653.2,DEMENTED,DEMENTED,NA
+H0653,Male,73,Other Neurodegen,dementia_due_to_other,3,700,plasma,H0653.3,DEMENTED,DEMENTED,NA
+H0786,Female,62,Other Neurodegen,dementia_due_to_other,1,0,plasma,H0786.1,DEMENTED,DEM-PPASYN,NA
+H0786,Female,64,Other Neurodegen,dementia_due_to_other,3,761,plasma,H0786.3,DEMENTED,DEM-PPASYN,NA
+H7001,Female,71,Other Neurodegen,dementia_due_to_other,2,414,plasma,H7001.2,MCINON1,DEM-NAMNDEM,NA
+H6066,Male,67,Other Neurodegen,dementia_due_to_other,1,0,plasma,H6066.1,DEM-NAMNDEM,DEM-NAMNDEM,NA
+H6066,Male,68,Other Neurodegen,dementia_due_to_other,2,404,plasma,H6066.2,DEM-NAMNDEM,DEM-NAMNDEM,NA
+H0103,Male,69,Other Neurodegen,dementia_due_to_AD,1,0,plasma,H0103.1,MCIAPLUS,DEMENTED,NA
+H0103,Male,70,Other Neurodegen,dementia_due_to_AD,2,357,plasma,H0103.2,MCIAPLUS,DEMENTED,NA
+H0701,Male,54,Other Neurodegen,dementia_due_to_other,1,0,plasma,H0701.1,MCINON1,DEMENTED,NA
+H0701,Male,55,Other Neurodegen,dementia_due_to_other,2,363,plasma,H0701.2,MCINON1,DEMENTED,NA
+H0701,Male,56,Other Neurodegen,dementia_due_to_other,3,776,plasma,H0701.3,MCINON1,DEMENTED,NA
+H6069,Female,73,Other Neurodegen,dementia_due_to_other,2,359,plasma,H6069.2,DEM-NAMNDEM,MCINON2,NA
+H6005,Male,76,Other Neurodegen,dementia_due_to_other,2,322,plasma,H6005.1,MCIAPLUS,DEM-LBDSYN,NA
+H6005,Male,77,Other Neurodegen,dementia_due_to_other,3,748,plasma,H6005.2,MCIAPLUS,DEM-LBDSYN,NA
+H6005,Male,81,Other Neurodegen,dementia_due_to_other,6,1954,plasma,H6005.5,MCIAPLUS,DEM-LBDSYN,NA
+H6064,Male,65,Other Neurodegen,NA,1,0,plasma,H6064.1,MCIAPLUS,MCIAPLUS,NA
+H6015,Male,77,Other Neurodegen,NA,4,1050,plasma,H6015.1,NORMCOG,MCIAPLUS,NA
+H6015,Male,78,Other Neurodegen,NA,5,1420,plasma,H6015.2,NORMCOG,MCIAPLUS,NA
+H6015,Male,79,Other Neurodegen,NA,6,1785,plasma,H6015.3,NORMCOG,MCIAPLUS,NA
+H0949,Female,72,Other Neurodegen,dementia_due_to_other,1,0,plasma,H0949.1,MCIAPLUS,DEM-PPASYN,NA
+H0949,Female,74,Other Neurodegen,dementia_due_to_other,3,839,plasma,H0949.3,MCIAPLUS,DEM-PPASYN,NA
+H0949,Female,75,Other Neurodegen,dementia_due_to_other,4,1133,plasma,H0949.4,MCIAPLUS,DEM-PPASYN,NA
+H0974,Female,54,Other Neurodegen,dementia_due_to_other,1,0,plasma,H0974.1,MCIAPLUS,MCIAPLUS,NA
+H0595,Female,55,Other Neurodegen,dementia_due_to_other,1,0,plasma,H0595.1,MCINON2,DEM-PPASYN,NA
+H0595,Female,56,Other Neurodegen,dementia_due_to_other,2,350,plasma,H0595.2,MCINON2,DEM-PPASYN,NA
+H0595,Female,57,Other Neurodegen,dementia_due_to_other,3,837,plasma,H0595.3,MCINON2,DEM-PPASYN,NA
+H0664,Female,57,Other Neurodegen,dementia_due_to_other,1,0,plasma,H0664.1,MCINON1,DEM-PPASYN,NA
+H0664,Female,58,Other Neurodegen,dementia_due_to_other,2,421,plasma,H0664.2,MCINON1,DEM-PPASYN,NA
+H0664,Female,59,Other Neurodegen,dementia_due_to_other,3,784,plasma,H0664.3,MCINON1,DEM-PPASYN,NA
+H0934,Female,62,Other Neurodegen,dementia_due_to_other,1,0,plasma,H0934.1,MCINON1,DEM-PPASYN,NA
+H0934,Female,63,Other Neurodegen,dementia_due_to_other,2,463,plasma,H0934.2,MCINON1,DEM-PPASYN,NA
+H0934,Female,64,Other Neurodegen,dementia_due_to_other,3,786,plasma,H0934.3,MCINON1,DEM-PPASYN,NA
+H0731,Male,68,Other Neurodegen,dementia_due_to_other,1,0,plasma,H0731.1,MCINON1,DEM-NAMNDEM,NA
+H0731,Male,69,Other Neurodegen,dementia_due_to_other,2,380,plasma,H0731.2,MCINON1,DEM-NAMNDEM,NA
+H0731,Male,70,Other Neurodegen,dementia_due_to_other,3,595,plasma,H0731.3,MCINON1,DEM-NAMNDEM,NA
+H7001,Female,70,Other Neurodegen,dementia_due_to_other,1,0,plasma,H7001.1,MCINON1,DEM-NAMNDEM,NA
+H0402,Male,74,Other Neurodegen,normals_decline,2,405,plasma,H0402.1,NORMCOG,MCIAMEM,NA
+H0402,Male,75,Other Neurodegen,normals_decline,3,778,plasma,H0402.2,NORMCOG,MCIAMEM,NA
+H0402,Male,76,Other Neurodegen,normals_decline,4,1190,plasma,H0402.3,NORMCOG,MCIAMEM,NA
+H0426,Female,80,Other Neurodegen,normals_decline,2,384,plasma,H0426.1,IMPNOMCI,MCINON1,NA
+H0426,Female,81,Other Neurodegen,normals_decline,3,769,plasma,H0426.2,IMPNOMCI,MCINON1,NA
+H0426,Female,82,Other Neurodegen,normals_decline,4,1172,plasma,H0426.3,IMPNOMCI,MCINON1,NA
+H0489,Male,82,Other Neurodegen,MCI_due_to_AD,1,0,plasma,H0489.1,NORMCOG,MCINON1,NA
+H0489,Male,84,Other Neurodegen,MCI_due_to_AD,2,447,plasma,H0489.2,NORMCOG,MCINON1,NA
+H0489,Male,85,Other Neurodegen,MCI_due_to_AD,3,916,plasma,H0489.3,NORMCOG,MCINON1,NA
+H0031,Female,74,Pre-MCI_AD,dementia_due_to_AD,1,0,plasma,H0031.1,NORMCOG,DEM-AMNDEM,NA
+H0031,Female,76,Pre-MCI_AD,dementia_due_to_AD,2,411,plasma,H0031.2,NORMCOG,DEM-AMNDEM,NA
+H0031,Female,77,Pre-MCI_AD,dementia_due_to_AD,3,826,plasma,H0031.3,NORMCOG,DEM-AMNDEM,NA
+H0079,Male,68,Pre-MCI_AD,dementia_due_to_other,1,0,plasma,H0079.1,NORMCOG,DEM-AMNDEM,NA
+H0079,Male,73,Pre-MCI_AD,dementia_due_to_other,5,1763,plasma,H0079.3,NORMCOG,DEM-AMNDEM,NA
+H0153,Female,82,Pre-MCI_AD,MCI_due_to_AD,1,0,plasma,H0153.1,NORMCOG,MCIAPLUS,NA
+H0153,Female,83,Pre-MCI_AD,MCI_due_to_AD,2,357,plasma,H0153.2,NORMCOG,MCIAPLUS,NA
+H0153,Female,85,Pre-MCI_AD,MCI_due_to_AD,3,819,plasma,H0153.3,NORMCOG,MCIAPLUS,NA
+H0161,Male,78,Pre-MCI_AD,MCI_due_to_AD,1,0,plasma,H0161.1,NORMCOG,MCIAPLUS,NA
+H0161,Male,80,Pre-MCI_AD,MCI_due_to_AD,3,848,plasma,H0161.3,NORMCOG,MCIAPLUS,NA
+H0161,Male,83,Pre-MCI_AD,MCI_due_to_AD,5,1869,plasma,H0161.4,NORMCOG,MCIAPLUS,NA
+H0186,Male,74,Pre-MCI_AD,MCI_due_to_AD,3,827,plasma,H0186.1,NORMCOG,MCIAPLUS,NA
+H0186,Male,76,Pre-MCI_AD,MCI_due_to_AD,4,1273,plasma,H0186.2,NORMCOG,MCIAPLUS,NA
+H0186,Male,77,Pre-MCI_AD,MCI_due_to_AD,5,1694,plasma,H0186.3,NORMCOG,MCIAPLUS,NA
+H0455,Female,76,Pre-MCI_AD,MCI_due_to_AD,2,448,plasma,H0455.1,NORMCOG,MCIAPLUS,NA
+H0455,Female,77,Pre-MCI_AD,MCI_due_to_AD,3,816,plasma,H0455.2,NORMCOG,MCIAPLUS,NA
+H0455,Female,78,Pre-MCI_AD,MCI_due_to_AD,4,1259,plasma,H0455.3,NORMCOG,MCIAPLUS,NA
+H0511,Female,85,Pre-MCI_AD,MCI_due_to_AD,3,903,plasma,H0511.1,NORMCOG,MCIAPLUS,NA
+H0511,Female,88,Pre-MCI_AD,MCI_due_to_AD,5,1839,plasma,H0511.3,NORMCOG,MCIAPLUS,NA
+H0544,Male,89,Pre-MCI_AD,MCI_due_to_AD,2,492,plasma,H0544.1,NORMCOG,MCIAPLUS,NA
+H0544,Male,90,Pre-MCI_AD,MCI_due_to_AD,3,923,plasma,H0544.2,NORMCOG,MCIAPLUS,NA
+H0544,Male,92,Pre-MCI_AD,MCI_due_to_AD,5,1653,plasma,H0544.3,NORMCOG,MCIAPLUS,NA
+H0666,Male,81,Pre-MCI_AD,MCI_due_to_AD,1,0,plasma,H0666.1,NORMCOG,MCIAMEM,NA
+H0666,Male,82,Pre-MCI_AD,MCI_due_to_AD,2,462,plasma,H0666.2,NORMCOG,MCIAMEM,NA
+H0666,Male,83,Pre-MCI_AD,MCI_due_to_AD,3,818,plasma,H0666.3,NORMCOG,MCIAMEM,NA
+H0732,Female,80,Pre-MCI_AD,dementia_due_to_AD,1,0,plasma,H0732.1,NORMCOG,DEM-AMNDEM,NA
+H0732,Female,81,Pre-MCI_AD,dementia_due_to_AD,2,387,plasma,H0732.2,NORMCOG,DEM-AMNDEM,NA

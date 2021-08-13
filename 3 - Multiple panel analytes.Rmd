@@ -1,0 +1,92 @@
+---
+title: "5 - Multiple panel analytes"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+
+all_data_merged <- read_csv("Input data/all_data_merged.csv")
+
+to_keep <- readRDS("Output tables/to_keep.rds")
+
+```
+##Compare analytes on multiple panels
+
+A handful of analytes are found on multiple panels - how do their values correlate across panels?
+
+```{r}
+
+panel_correl <- unique(all_data_merged$proteinID)
+panel_correl <- as.data.frame(panel_correl) %>%
+  separate(panel_correl, into = c("Panel", "Protein", "Uniprot", "OlinkRef"), sep = "_", remove = FALSE)
+
+counts <- table(panel_correl$Protein)
+counts <- as.data.frame(counts) %>%
+  filter(Freq == 2)
+
+multiples <- all_data_merged %>%
+  filter(proteinID %in% to_keep$proteinID) %>%
+  separate(proteinID, into = c("Panel", "Protein", "Uniprot", "OlinkRef"), sep = "_", remove = FALSE) %>%
+  filter(Protein %in% counts$Var1) %>%
+  select(TubeID, Panel, Protein, NPX) %>%
+  spread(Panel, NPX)  
+
+head(multiples)
+multiples_collapsed = cbind(multiples[,1:2], 
+      t(apply(multiples[,-c(1:2)], 1, function(row){ tmp=row[!is.na(row)]; c(tmp[1],tmp[2]) })))
+
+
+
+
+
+# tmp_deets <- all_data_merged %>%
+#   select(TubeID, Experiment, Fluid) %>%
+#   unique()
+
+# multiples_collapsed <- merge(multiples_collapsed, tmp_deets, by = "TubeID", all.y = FALSE)
+# multiples_collapsed$Symbol <- gsub("LAP ", "", multiples_collapsed$Symbol)
+
+
+
+multiples_cor <- multiples_collapsed %>%
+  group_by(Protein) %>%
+  filter(!is.na(`1`)) %>%
+  filter(!is.na(`2`)) %>%
+  summarize(cor = cor(`1`,`2`)) %>%
+  mutate(cor_round = round(cor, 2))
+
+multiples_collapsed <- merge(multiples_collapsed, multiples_cor, by = "Protein")
+multiples_collapsed <- multiples_collapsed %>%
+  unite("Title", c(Protein, cor_round), sep = " ")
+
+tmp <- multiples_collapsed %>%
+  pivot_longer(c(`1`,`2`), names_to = "Panel", values_to = "NPX") %>%
+  filter(!is.na(NPX)) %>%
+  group_by(Title) %>%
+  summarise(min = min(NPX), max = max(NPX)) %>%
+  mutate(min_round = floor(min)) %>%
+  mutate(max_ceiling = ceiling(max)) %>%
+  select(Title, min_round, max_ceiling) %>%
+  left_join(multiples_collapsed)
+
+
+
+double_panel_proteins <- tmp %>%
+  filter(!is.na(`1`)) %>%
+  filter(!is.na(`2`)) %>%
+  ggplot(aes(x = `1`, y =`2`)) + geom_point(aes(alpha = 0.4,)) + 
+  facet_wrap(~Title, scales = "free") + geom_smooth(method = "lm") +
+  geom_abline(slope = 1, intercept = 0, alpha = 0.7, lty = 2) +
+  geom_blank(aes(y = min_round)) +
+  geom_blank(aes(y = max_ceiling)) +
+  geom_blank(aes(x = min_round)) +
+  geom_blank(aes(x = max_ceiling))
+
+
+ggsave("Figures for Zoe and Amanda/Fig4_Multi_panel_proteins.pdf", plot = double_panel_proteins, device = "pdf", width = 8, height = 8.75, units = "in", dpi = 300)
+```
+

@@ -1,0 +1,118 @@
+---
+title: "4 - Biotemporal stability - CVs and change"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+##Read in files
+
+```{r}
+
+all_data_merged = readRDS("Output tables/all_merged.rds")
+
+to_keep <- readRDS("Output tables/to_keep.rds")
+
+```
+
+
+
+
+
+
+
+
+# Long term biotemporal stability - plasma
+
+Uses MADRC controls
+
+```{r, echo=FALSE}
+
+  
+
+Long_term_CVs <- all_data_merged %>%
+  filter(`SEA Category` == "normals_remain_normal") %>%
+  filter(proteinID %in% to_keep$proteinID) %>%
+  filter(!is.na(NPX)) %>%
+  group_by(SubjectID, proteinID) %>%
+  summarize(n = n(), mean = mean(NPX), sd = sd(NPX)) %>%
+  filter(!is.na(sd)) %>%
+  mutate(CV = (sd/mean)*100) %>%
+  group_by(proteinID) %>%
+  summarize(mean_NPX = mean(mean), mean_CV = mean(CV)) %>%
+  separate(proteinID, into = c("Panel", "Protein", "Uniprot", "OlinkRef"), sep = "_", remove = FALSE)
+
+Bad_bioCV <- Long_term_CVs %>%
+  filter(mean_CV > 15)
+
+Biotemp_CV <- ggplot(data = Long_term_CVs, aes(x = mean_CV, fill = Panel)) +
+  geom_histogram(binwidth = 2.5) + theme_bw() +
+  xlab("Mean CV") + geom_vline(xintercept = 20, color = "red") + facet_wrap(~Panel, ncol = 3) +
+  xlim(0,50)
+
+ggsave("Figures for Zoe and Amanda/6A_Biotemp_CV.pdf", plot = Biotemp_CV, device = "pdf", width = 6, height = 3, units = "in", dpi = 300)
+
+```
+
+
+ 
+#Spaghetti plots
+
+Can select a few proteins we're interested in - This is NFL
+
+```{r, echo=FALSE}
+
+all_data_merged <- all_data_merged %>%
+  separate(proteinID, into = c("Panel", "Protein", "Uniprot", "OlinkRef"), sep = "_", remove = FALSE) 
+
+
+NFL <- all_data_merged %>%
+  filter(Protein == "NEFL" | Protein == "CHI3L1" | Protein == "SMOC1") %>%
+  filter(`SEA Category` == "normals_remain_normal") %>%
+  group_by(SubjectID, proteinID) %>%
+  mutate(Visit_baseline = rank(Visit)) %>%
+  filter(!is.na(NPX)) %>%
+  ggplot(aes(x = as.factor(Visit_baseline), y = NPX, group = SubjectID, color = SubjectID)) +
+  geom_point() + geom_line() + facet_wrap(~Protein) + ylim(2,8) + xlab("Visit number")
+
+ggsave("Figures for Zoe and Amanda/FigureS2_biotemp_indiv_Proteins.pdf", plot = NFL, device = "pdf", width = 10, height = 7.5, units = "in", dpi = 300)
+
+
+
+
+
+
+
+```
+
+
+#Long-term biotemporal vs NPX
+
+```{r, echo=FALSE}
+Long_biotempVsNPX <- ggplot(data = Long_term_CVs, aes(x = mean_NPX, y = mean_CV)) + 
+  geom_point(aes(color = Panel)) + scale_y_log10()+
+  ggtitle("Coefficient of Variation (CV) vs NPX") +
+  ylab("Mean CV") + 
+  xlab("Mean NPX")
+
+ggsave("Figures for Zoe and Amanda/BiotempVsNPX.pdf", plot = Long_biotempVsNPX, device = "pdf", width = 7.5, height = 4.375, units = "in", dpi = 300)
+
+
+```
+
+```{r}
+
+biotemporal_CVs <- Long_term_CVs %>%
+  separate(proteinID, into = c("Panel", "Protein", "Uniprot", "OlinkRef"), sep = "_", remove = TRUE) %>%
+  select(Panel, Protein, Uniprot, OlinkRef, mean_CV) %>%
+  rename(`Biotemporal CV` = mean_CV)
+
+write_csv(biotemporal_CVs, "Output tables/Biotemporal_CVs.csv")
+
+
+
+```
+
